@@ -1,4 +1,4 @@
-# Repositorio de la aplicacion web PCMaster desarrollado durante el curso de desarrollo de aplicaciones web
+# Repositorio de la aplicacion web PcShare desarrollado durante el curso de desarrollo de aplicaciones web
 
 ## Integrantes 
 
