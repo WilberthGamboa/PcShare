@@ -3,6 +3,6 @@
 ## Integrantes 
 
 1. Wilberth Manuel Gamboa Campos
-![Alt text]( Wilberth Gamboa.jfif)
+![Alt text](Wilberth Gamboa.jfif)
 2. Ariel Fernández Jesús Mena
-![Alt text]( Ariel Fernandez.jpg)
+![Alt text](Ariel Fernandez.jpg)
