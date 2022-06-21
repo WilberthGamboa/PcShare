@@ -1,7 +1,22 @@
+html, body {
+    width: 100%;
+    height: 100%;
+}
+
+
 .grilla{
+   
+    font-family: 'Lato', sans-serif;
+    background-color: #ececec;
+
     display: grid;
-    grid-template-columns: 1fr 3fr 1fr;
     gap: 10%;
+    min-height: 100%;
+    grid-template-columns: 1fr 3fr 1fr;
+    grid-template-rows: auto 1fr auto;
+   
+
+    
 
 }
 header{
@@ -39,5 +54,7 @@ input{
     margin-top: 2%;
 }
 footer{
+        
     grid-column: 1/4;
+    grid-row: 3/4;
 }
