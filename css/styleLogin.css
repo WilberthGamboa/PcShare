@@ -54,7 +54,10 @@ input{
     margin-top: 2%;
 }
 footer{
-        
+        text-align:  center;
     grid-column: 1/4;
     grid-row: 3/4;
+
+    background-color: #c24d2c;
+    border-radius: 60px 58px 0px 0px;
 }
