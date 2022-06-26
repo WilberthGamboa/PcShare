@@ -5,6 +5,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=}, initial-scale=1.0">
     <link rel="stylesheet" href="/css/nav.css">
+    <link rel="stylesheet" href="/css/carrusel.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <title>Document</title>
 </head>
 <body>
@@ -47,15 +49,89 @@
 
         <main>
 
-            <form action="">
+          <form action="">
                
-            </form>
+          </form>
+
+          <div class="slide">
+            <div class="slide-inner">
+              <input class="slide-open" type="radio" id="slide-1" 
+                    name="slide" aria-hidden="true" hidden="" checked="checked">
+              <div class="slide-item">
+                <img src="https://www.headsem.com/wp-content/uploads/2016/03/componentes-para-construir-el-mejor-PC.png">
+              </div>
+              <input class="slide-open" type="radio" id="slide-2" 
+                    name="slide" aria-hidden="true" hidden="">
+              <div class="slide-item">
+                <img src="https://www.headsem.com/wp-content/uploads/2016/03/componentes-para-construir-el-mejor-PC.png">
+              </div>
+              <input class="slide-open" type="radio" id="slide-3" 
+                    name="slide" aria-hidden="true" hidden="">
+              <div class="slide-item">
+                <img src="https://www.headsem.com/wp-content/uploads/2016/03/componentes-para-construir-el-mejor-PC.png">
+              </div>
+              <label for="slide-3" class="slide-control prev control-1">‹</label>
+              <label for="slide-2" class="slide-control next control-1">›</label>
+              <label for="slide-1" class="slide-control prev control-2">‹</label>
+              <label for="slide-3" class="slide-control next control-2">›</label>
+              <label for="slide-2" class="slide-control prev control-3">‹</label>
+              <label for="slide-1" class="slide-control next control-3">›</label>
+              <ol class="slide-indicador">
+                <li>
+                  <label for="slide-1" class="slide-circulo">•</label>
+                </li>
+                <li>
+                  <label for="slide-2" class="slide-circulo">•</label>
+                </li>
+                <li>
+                  <label for="slide-3" class="slide-circulo">•</label>
+                </li>
+              </ol>
+            </div>
+          </div>
 
         </main>
 
-        <footer>
+        <footer class="footer">
+          <div class="contenedor">
+              <div class="columna multilinea">
+                  <div class="columna">
+                      <ul class="footerDatos">
+                          <li class="footerItem">
+                            <h3 class="tituloColumna">Información</h3>
+                          </li>
+                          <li class="footerItem"><a class="footer-link" href="#">Servicios </a></li>
+                          <li class="footerItem"><a class="footer-link" href="#">Contacto </a></li>
+                          <li class="footerItem"><a class="footer-link" href="#">¿Quienes somos?</a></li>
+                      </ul>
+                  </div>
+  
+                  <div class="columna">
+                      <ul class="footerDatos">
+                          <li class="footerItem">
+                              <h3 class="tituloColumna">Tu cuenta</h3>
+                          </li>
+                          <li class="footerItem"><a class="footer-link" href="#">Iniciar sesión</a></li>
+                          <li class="footerItem"><a class="footer-link" href="#">Registro</a></li>
+                          <li class="footerItem"><a class="footer-link" href="#">Ver catálogo</a></li>
+                      </ul>
+                  </div>
 
-        </footer>
+                  <div class="columnaRedes">
+                      <div class="footerRedesSociales">
+                          <a class="redesSociales" href="#"><i class="fa fa-facebook"></i></a>
+                          <a class="redesSociales" href="#"><i class="fa fa-twitter"></i></a>
+                          <a class="redesSociales" href="#"><i class="fa fa-instagram"></i></a>
+                      </div>
+                  </div>
+              </div>
+          </div>
+          <div class="footerBajo">
+              <div class="contenedor">
+                <a class="footer-bar-top-links" href="#">Marca Registrada</a>
+              </div>
+          </div>
+      </footer>
     </div>
     
 </body>
