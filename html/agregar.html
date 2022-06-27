@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="/css/nav.css">
     <link rel="stylesheet" href="/css/styleAgregar.css">
     <link rel="stylesheet" href="/css/botones.css">
+   
  
     <title>Document</title>
 </head>
@@ -25,19 +26,19 @@
                 <div class="menu">
                   <ul>
                     <li>
-                      <a href="#home">
+                      <a href="/html/index.html">
                         Principal
                       </a>
                     </li>
                     <li>
-                      <a href="#pricing">
+                      <a href="/html/agregar.html">
                         Agregar Pc
                       </a>
                     </li>
                   </ul>
                   <ul>
                     <li>
-                      <a href="#signup">
+                      <a href="/html/login.html">
                         Salir
                       </a>
                     </li>
@@ -48,7 +49,7 @@
         <main>
             <form action="">
                 <label for="">Placa Madre</label>
-                <input type="text">
+                <input id="placaMadre" type="text">
                 <label for="">Procesador</label>
                 <input type="text">
                 <label for="">Tarjeta de video</label>
@@ -63,8 +64,14 @@
                 <input type="text">
                 <label for="">Gabinete</label>
                 <input type="text">
-                <input class="accept" type="button" value="Agregar">
-                <input class ="deny"type="button" value="Editar">
+
+                <div class="botonera">
+                  <input id="add"  class ="add"type="button" value="Agregar">
+              
+                  <input  class ="deny"  type="reset" value="Eliminar">
+                </div>
+               
+                
 
             </form>
             
@@ -72,5 +79,9 @@
         </main>
 
     </div>
+    <script src="/js/scriptAgregar.js"></script>
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </body>
+
+
 </html>

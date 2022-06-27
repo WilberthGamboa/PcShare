@@ -1,0 +1,17 @@
+form{
+    display: flex;
+    justify-content: center;
+    
+    flex-direction: column;
+    width: 80%;
+    margin: auto;
+  /* border: 8px inset rgba(28,110,164,0.82);*/
+
+}
+label{
+    margin-top: 1%;
+}
+
+input{
+    margin-top: 2%;
+}

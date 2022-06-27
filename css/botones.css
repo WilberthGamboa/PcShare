@@ -51,3 +51,58 @@
 	background:-ms-linear-gradient(#eb3d3d, #ff3030);
 	background:linear-gradient(#eb3d3d, #ff3030);
 }
+
+
+.add {
+	text-decoration:none;
+	font-family:Arial;
+	box-shadow:inset #23cf51 0px 5px 8px -1px,#07630a 0px 5px 0px;
+	o-box-shadow:inset #23cf51 0px 5px 8px -1px,#07630a 0px 5px 0px;
+	-moz-box-shadow:inset #23cf51 0px 5px 8px -1px,#07630a 0px 5px 0px;
+	-webkit-box-shadow:inset #23cf51 0px 5px 8px -1px,#07630a 0px 5px 0px;
+	background:#4cd451;
+	background:-o-linear-gradient(90deg, #4cd451, #438c48);
+	background:-moz-linear-gradient( center top, #4cd451 5%, #438c48 100% );
+	background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #4cd451), color-stop(1, #438c48) );
+	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#4cd451', endColorstr='#438c48');
+	background:-webkit-linear-gradient(#4cd451, #438c48);
+	background:-ms-linear-gradient(#4cd451, #438c48);
+	background:linear-gradient(#4cd451, #438c48);
+	text-indent:0px;
+	line-height:30px;
+	-moz-border-radius:10px;
+	-webkit-border-radius:10px;
+	border-radius:10px;
+	text-align:center;
+	vertical-align:middle;
+	display:inline-block;
+	font-size:20px;
+	color:#ffffff;
+	width:100px;
+	
+	padding:12px;
+	text-shadow:#7d7d7d 0px 1px 0px;
+	border-color:#ffffff;
+	border-width:0px;
+	border-style:solid;
+}
+
+.add:active {
+	box-shadow:inset #23cf51 0px 5px 8px -1px,#07630a 0px 0 0px;
+	o-box-shadow:inset #23cf51 0px 5px 8px -1px,#07630a 0px 0 0px;
+	-moz-box-shadow:inset #23cf51 0px 5px 8px -1px,#07630a 0px 0 0px;
+	-webkit-box-shadow:inset #23cf51 0px 5px 8px -1px,#07630a 0px 0 0px;
+	position:relative;
+	top:5px
+}
+
+.add:hover {
+	background:#438c48;
+	background:-o-linear-gradient(90deg, #438c48, #4cd451);
+	background:-moz-linear-gradient( center top, #438c48 5%, #4cd451 100% );
+	background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #438c48), color-stop(1, #4cd451) );
+	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#438c48', endColorstr='#4cd451');
+	background:-webkit-linear-gradient(#438c48, #4cd451);
+	background:-ms-linear-gradient(#438c48, #4cd451);
+	background:linear-gradient(#438c48, #4cd451);
+}
