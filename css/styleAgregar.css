@@ -1,10 +1,17 @@
 form{
+<<<<<<< HEAD
     padding: 30px;
+=======
+    padding: 60px;
+>>>>>>> e5f21d6d67ec7c8e218d0a02d355cf16619df864
     max-width: 400px;
     background-color: #E7E7E7;
     margin: 0 auto;
     text-align: center;
+<<<<<<< HEAD
     margin-bottom: 50px;
+=======
+>>>>>>> e5f21d6d67ec7c8e218d0a02d355cf16619df864
 }
 
 

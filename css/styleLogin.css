@@ -3,8 +3,25 @@ html, body {
     height: 100%;
 }
 
+<<<<<<< HEAD
 body{
   background-color: #ececec;
+=======
+
+.grilla{
+   
+    font-family: 'Lato', sans-serif;
+    background-color: #ececec;
+
+    display: grid;
+    gap: 10%;
+    
+    grid-template-columns: 1fr 3fr 1fr;
+    grid-template-rows: auto 1fr auto;
+   
+
+    
+>>>>>>> e5f21d6d67ec7c8e218d0a02d355cf16619df864
 
 }
 
@@ -23,6 +40,11 @@ body{
 header{
 
     grid-column: 1/4;
+<<<<<<< HEAD
+=======
+    background-color: #00b2ff;
+    box-shadow: 1px 7px 2px 0px rgba(0,0,0,0.75);
+>>>>>>> e5f21d6d67ec7c8e218d0a02d355cf16619df864
    
 }
 .grilla h1{
@@ -37,7 +59,10 @@ main{
     grid-column: 2/3;
  
     width: 100%;
+<<<<<<< HEAD
     padding-bottom: 100px;
+=======
+>>>>>>> e5f21d6d67ec7c8e218d0a02d355cf16619df864
    
 }
 
@@ -50,8 +75,17 @@ input{
     margin-top: 2%;
 }
 footer{
+<<<<<<< HEAD
     grid-column: 1/4;
     grid-row: 3/4;
+=======
+        text-align:  center;
+    grid-column: 1/4;
+    grid-row: 3/4;
+
+    background-color: #c24d2c;
+    border-radius: 60px 58px 0px 0px;
+>>>>>>> e5f21d6d67ec7c8e218d0a02d355cf16619df864
 }
 
 
