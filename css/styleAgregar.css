@@ -1,17 +1,24 @@
 form{
-    display: flex;
-    justify-content: center;
-    
-    flex-direction: column;
-    width: 80%;
-    margin: auto;
-  /* border: 8px inset rgba(28,110,164,0.82);*/
-
-}
-label{
-    margin-top: 1%;
+    padding: 60px;
+    max-width: 400px;
+    background-color: #E7E7E7;
+    margin: 0 auto;
+    text-align: center;
 }
 
-input{
-    margin-top: 2%;
+
+form input, form label{
+    margin-bottom: 15px;
+    font-family: "Roboto", sans-serif;
+    width: 100%;
+    padding: 10px;
+    box-sizing: border-box; 
+    border: none; 
+    color: #525c66; 
+    font-size: 1em;
+    resize: none; 
 }
+
+
+
+
