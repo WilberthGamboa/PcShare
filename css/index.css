@@ -1,0 +1,112 @@
+main{
+    display: flex;  
+}
+
+.hola{
+	text-align: justify;
+	padding: 15px;
+}
+
+.hola h2{
+	text-align: center;
+}
+
+.buscador{
+	display: flex;
+}
+
+.buscador form{
+	margin: auto;
+	width: 75%;
+}
+
+.buscador form input{
+	padding: 3px;
+}
+
+.flex-form input[type="submit"] {
+	background: #232323;
+	border: 1px solid black;
+	color: #fff;
+	padding: 0 30px;
+	cursor: pointer;
+	-webkit-transition: all 0.2s;
+	-moz-transition: all 0.2s;
+	transition: all 0.2s;
+    width: 100%;
+	font-size:large;
+	
+}
+  
+.flex-form input[type="submit"]:hover {
+	background: #232323;
+	border: 1px solid black;
+	font-size: x-large;
+	color: #00C6A7;
+}
+  
+.flex-form {
+	display: -webkit-box;
+	display: flex;
+	z-index: 10;
+	position: relative;
+	width: 500px;
+	box-shadow: 4px 8px 16px rgba(0, 0, 0, 0.7);
+}
+  
+.flex-form > * {
+	border: 0;
+	padding: 0 0 0 10px;
+	background: #fff;
+	line-height: 50px;
+	font-size: 1rem;
+	border-radius: 0;
+	outline: 0;
+	-webkit-appearance: none;
+}
+  
+input[type="search"] {
+	flex-basis: 5500px;
+}
+
+
+
+/*ABAJO*/
+
+.contenedor{
+    width: 100%;
+    max-width: 1200px;
+    height: auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin: auto;
+}
+
+.contenedor .pcs{
+    width: 300px;
+    height: 350px;
+    border-radius: 8px;
+    box-shadow: 2px 2px 2px 2px rgba(0, 0, 0, 0.2);
+    overflow: hidden;
+    margin: 20px;
+    text-align: center;
+    transition: all 0.25s;
+}
+
+.contenedor .pcs:hover{
+    transform: translateY(-15px);
+    box-shadow: 0 12px 16px rgba(0, 0, 0, 0.2);
+}
+
+.contenedor .pcs img{
+    width: 300px;
+    height: 300px;
+}
+
+.contenedor .pcs a {
+    font-size: 20px;
+    font-weight: 500;
+    text-decoration: none;
+    color: blue;
+}

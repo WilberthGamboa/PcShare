@@ -1,0 +1,34 @@
+
+.foto{
+    display: flex;
+    justify-content: right;
+    
+    width: 50%;
+
+}
+.section{
+    display: flex;
+    width: 30%;
+    justify-content: left;
+}
+
+table{
+    width: 75%;
+    text-align: center;
+}
+
+.fichaTecnica{
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    margin: auto;
+    padding-bottom: 50px;
+}
+
+h2{
+    text-align: center;
+    padding-top: 30px;
+    padding-bottom: 30px;
+
+}
+
