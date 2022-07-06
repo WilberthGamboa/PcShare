@@ -14,7 +14,21 @@ btnRegistro.onclick = () =>{
         alerta();
     }
     else {
-        document.form.submit();
+        Swal.fire({
+            title: 'Guardado',
+            text: 'Tu pc ha sido agregada',
+            imageUrl: '../img/pcfeliz.jpg',
+            imageWidth: 400,
+            imageHeight: 200,
+            imageAlt: 'Custom image',
+            type: "success"}).then(okay => {
+                if (okay) {
+                    document.form.submit();
+               }
+          })
+     
+
+        
     }
     
  
