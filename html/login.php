@@ -1,3 +1,30 @@
+<?php
+
+  session_start();
+
+  if (isset($_SESSION['user_id'])) {
+    header('Location: /php-login');
+  }
+  require '../php/database.php';
+
+  if (!empty($_POST['usuario']) && !empty($_POST['contrasena'])) {
+    $records = $conn->prepare('SELECT id, email, password FROM users WHERE nombre = :usuario');
+    $records->bindParam(':nombre', $_POST['usuario']);
+    $records->execute();
+    $results = $records->fetch(PDO::FETCH_ASSOC);
+
+    $message = '';
+
+    if (count($results) > 0 && password_verify($_POST['contrasena'], $results['pass'])) {
+      $_SESSION['user_id'] = $results['id'];
+      header("Location: /php-login");
+    } else {
+      $message = 'Sorry, those credentials do not match';
+    }
+  }
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -65,11 +92,11 @@
           <div class="title"><span>Iniciar Sesión</span></div>
           <form action="#">
             <div class="row">
-              <input type="text" placeholder="Usuario" required>
+              <input type="text" placeholder="Usuario" id="usuario"  name="usuario" required>
             </div>
             <div class="row">
 
-              <input type="password" placeholder="Constraseña" required>
+              <input type="password" placeholder="Constraseña" id="contrasena" name="contrasena" required>
             </div>
 
             <div class="row button">

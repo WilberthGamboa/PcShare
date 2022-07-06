@@ -15,14 +15,14 @@ if (isset($_POST["usuario"], $_POST["contrasena"]) and $_POST["usuario"] !="" an
   $sql = "INSERT INTO usuarios (nombre, pass) VALUES (:nombre, :pass)";
   $stmt = $conn->prepare($sql);
   $stmt->bindParam(':nombre', $_POST['usuario']);
-  //$password = password_hash($_POST['password'], PASSWORD_BCRYPT);
-  $stmt->bindParam(':pass', $_POST['contrasena']);
+  $password = password_hash($_POST['password'], PASSWORD_BCRYPT);
+  $stmt->bindParam(':pass', $password);
 
   
 
  if ($stmt->execute()) {
   $message = 'Successfully created new user';
-  header('Location: login.html');
+  header('Location: login.php');
 } else {
   $message = 'Sorry there must have been an issue creating your account';
   header('Location: register.html');
@@ -127,7 +127,7 @@ if (isset($_POST["usuario"], $_POST["contrasena"]) and $_POST["usuario"] !="" an
             <div class="row button">
               <input type="button" value="Registrar" id="registro">
             </div>
-            <div class="signup-link"> <a href="/html/login.html">Iniciar Sesión</a></div>
+            <div class="signup-link"> <a href="/html/login.php">Iniciar Sesión</a></div>
           </form>
         </div>
       </div>
