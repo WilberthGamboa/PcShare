@@ -1,25 +1,34 @@
 <?php
 
-$servername = "localhost";
-$username = "root";
-$password = "";
-$dbname = "usuarios";
+require '../php/database.php';
 
-// Create connection
-$conn = mysqli_connect($servername, $username, $password, $dbname);
-// Check connection
-if (!$conn) {
-die("Connection failed: " . mysqli_connect_error());
-}
+$message = '';
 
 
 //Validamos que hayan llegado estas variables, y que no esten vacias:
 if (isset($_POST["usuario"], $_POST["contrasena"]) and $_POST["usuario"] !="" and $_POST["contrasena"]!=""){
 
   //traspasamos a variables locales, para evitar complicaciones con las comillas:
-  $usuario = $_POST["usuario"];
-  $contrasena = $_POST["contrasena"];
+ // $usuario = $_POST["usuario"];
+  //$contrasena = $_POST["contrasena"];
 
+  $sql = "INSERT INTO usuarios (nombre, pass) VALUES (:nombre, :pass)";
+  $stmt = $conn->prepare($sql);
+  $stmt->bindParam(':nombre', $_POST['usuario']);
+  //$password = password_hash($_POST['password'], PASSWORD_BCRYPT);
+  $stmt->bindParam(':pass', $_POST['contrasena']);
+
+  
+
+ if ($stmt->execute()) {
+  $message = 'Successfully created new user';
+  header('Location: login.html');
+} else {
+  $message = 'Sorry there must have been an issue creating your account';
+  header('Location: register.html');
+}
+  /*
+  //ESPARETE
   echo $usuario;
   //Preparamos la orden SQL
   $sql = "INSERT INTO usuarios
@@ -30,18 +39,18 @@ if (isset($_POST["usuario"], $_POST["contrasena"]) and $_POST["usuario"] !="" an
     echo "New record created successfully";
 
     //SI ES CORRECTO 
-    header('Location: login.html');
+   
     
 } else {
     echo "Error: " . $sql . "<br>" . mysqli_error($conn);
 }
-
+*/
   } else {
   
-  echo '<p>Por favor, complete el <a href="formulario.html">formulario</a></p>';
+  //echo '<p>Por favor, complete el <a href="formulario.html">formulario</a></p>';
   }
 
-  mysqli_close($conn);
+ 
 ?>
 
 

@@ -15,8 +15,8 @@ btnRegistro.onclick = () =>{
     }
     else {
         Swal.fire({
-            title: 'Guardado',
-            text: 'Tu pc ha sido agregada',
+            title: 'Registro correcto',
+            text: 'Tu usuario ha sido registrado con éxito',
             imageUrl: '../img/pcfeliz.jpg',
             imageWidth: 400,
             imageHeight: 200,
