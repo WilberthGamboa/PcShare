@@ -28,7 +28,9 @@ if (isset($_POST["usuario"], $_POST["contrasena"]) and $_POST["usuario"] !="" an
   //Aqui ejecutaremos esa orden
   if (mysqli_query($conn, $sql)) {
     echo "New record created successfully";
-    header('Location: index.html');
+
+    //SI ES CORRECTO 
+    header('Location: login.html');
     
 } else {
     echo "Error: " . $sql . "<br>" . mysqli_error($conn);
@@ -104,17 +106,17 @@ if (isset($_POST["usuario"], $_POST["contrasena"]) and $_POST["usuario"] !="" an
       <div class="container">
         <div class="wrapper">
           <div class="title"><span>Registro</span></div>
-          <form action="register.php" method="POST">
+          <form action="register.php" method="POST" name="form">
             <div class="row">
-              <input type="text" placeholder="Usuario" name="usuario" required>
+              <input type="text" placeholder="Usuario" name="usuario" id="usuario" required>
             </div>
             <div class="row">
 
-              <input type="password" placeholder="Contraseña" name="contrasena" required>
+              <input type="password" placeholder="Contraseña" name="contrasena" id="contrasena"  required>
             </div>
 
             <div class="row button">
-              <input type="button" value="Registrar" id="resgistro">
+              <input type="button" value="Registrar" id="registro">
             </div>
             <div class="signup-link"> <a href="/html/login.html">Iniciar Sesión</a></div>
           </form>
@@ -161,6 +163,10 @@ if (isset($_POST["usuario"], $_POST["contrasena"]) and $_POST["usuario"] !="" an
   <link href="https://fonts.googleapis.com/css2?family=Lato&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="../css/footer.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+  <!--   SCRIPTS -->
+  <script src="../js/registro.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </body>
 
 </html>
