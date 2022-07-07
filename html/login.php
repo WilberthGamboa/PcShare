@@ -17,8 +17,11 @@
 
     if (count($results) > 0 && password_verify($_POST['contrasena'], $results['pass'])) {
       $_SESSION['user_id'] = $results['id'];
-      header("Location: index.html");
+      header("Location: index.php");
     } else {
+ 
+   //   alert("incorrecto");
+
       $message = 'Sorry, those credentials do not match';
     }
   }

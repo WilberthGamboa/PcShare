@@ -1,3 +1,24 @@
+<?php
+  session_start();
+
+  require '../php/database.php';
+
+  if (isset($_SESSION['user_id'])) {
+    $records = $conn->prepare('SELECT id, nombre, pass FROM usuarios WHERE id = :id');
+    $records->bindParam(':id', $_SESSION['user_id']);
+    $records->execute();
+    $results = $records->fetch(PDO::FETCH_ASSOC);
+
+    $user = null;
+
+    if (count($results) > 0) {
+      $user = $results;
+    }
+  }else{
+    header('Location: login.php');
+  }
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -5,11 +26,11 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=}, initial-scale=1.0">
-  <link rel="stylesheet" href="/css/nav.css">
-  <link rel="stylesheet" href="/css/carrusel.css">
+  <link rel="stylesheet" href="../css/nav.css">
+  <link rel="stylesheet" href="../css/carrusel.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-  <link rel="stylesheet" href="/css/index.css">
-  <link rel="stylesheet" href="/css/footer.css">
+  <link rel="stylesheet" href="../css/index.css">
+  <link rel="stylesheet" href="../css/footer.css">
   <title>PCSHARE-PaginaPrincipal</title>
 </head>
 
@@ -45,7 +66,7 @@
           </ul>
           <ul>
             <li>
-              <a href="#signup">
+              <a href="../php/logout.php">
                 Salir
               </a>
             </li>
