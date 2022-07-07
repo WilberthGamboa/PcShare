@@ -1,3 +1,29 @@
+<?php
+  session_start();
+
+  require '../php/database.php';
+
+  if (isset($_SESSION['user_id'])) {
+    /*
+    $records = $conn->prepare('SELECT id, nombre, pass FROM usuarios WHERE id = :id');
+    $records->bindParam(':id', $_SESSION['user_id']);
+    $records->execute();
+    $results = $records->fetch(PDO::FETCH_ASSOC);
+
+    $user = null;
+    
+    if (count($results) > 0) {
+      $user = $results;
+      
+    }
+    */
+  }else{
+    header('Location: login.php');
+  }
+?>
+
+
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -30,7 +56,7 @@
         <div class="menu">
           <ul>
             <li>
-              <a href="#home">
+              <a href="index.php">
                 Principal
               </a>
             </li>
@@ -40,20 +66,21 @@
               </a>
             </li>
             <li>
-              <a href="#pricing">
+              <a href="agregar.php">
                 Agregar Pc
               </a>
             </li>
           </ul>
           <ul>
             <li>
-              <a href="#signup">
+            <a href="../php/logout.php">
                 Salir
               </a>
             </li>
           </ul>
         </div>
       </nav>
+
 
 
     </header>

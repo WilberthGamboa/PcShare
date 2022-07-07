@@ -83,7 +83,7 @@ if (isset($_POST["usuario"], $_POST["contrasena"]) and $_POST["usuario"] !="" an
         <div class="menu">
           <ul>
             <li>
-              <a href="#home">
+              <a href="index.php">
                 Principal
               </a>
             </li>
@@ -93,20 +93,21 @@ if (isset($_POST["usuario"], $_POST["contrasena"]) and $_POST["usuario"] !="" an
               </a>
             </li>
             <li>
-              <a href="#pricing">
+              <a href="agregar.php">
                 Agregar Pc
               </a>
             </li>
           </ul>
           <ul>
             <li>
-              <a href="#signup">
+            <a href="../php/logout.php">
                 Salir
               </a>
             </li>
           </ul>
         </div>
       </nav>
+
 
 
     </header>
