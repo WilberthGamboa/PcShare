@@ -4,6 +4,61 @@
   require '../php/database.php';
 
   if (isset($_SESSION['user_id'])) {
+  // echo "<script> alert('verificar');
+   
+   
+ //  </script>";
+  echo $_POST["nombre"], $_POST["placaMadre"], $_POST["procesador"], $_POST["tarjetaDeVideo"], $_POST["fuenteDePoder"], $_POST["almacenamiento"], $_POST["ram"], $_POST["gabinete"];
+    if (isset($_POST["nombre"], $_POST["placaMadre"], $_POST["procesador"], $_POST["tarjetaDeVideo"], $_POST["fuenteDePoder"], $_POST["almacenamiento"], $_POST["ram"], $_POST["gabinete"])and $_POST["nombre"]!="" and $_POST["procesador"]!="" and $_POST["placaMadre"]!="" and $_POST["tarjetaDeVideo"]!="" and $_POST["fuenteDePoder"]!="" and $_POST["almacenamiento"]!="" and $_POST["ram"]!="" and $_POST["gabinete"]!="" ){
+   //   echo "<script> alert('dentro sql') </script>";
+      //traspasamos a variables locales, para evitar complicaciones con las comillas:
+     // $usuario = $_POST["usuario"];
+      //$contrasena = $_POST["contrasena"];
+     
+      $sql = "INSERT INTO computadoras (nombre,procesador,placaMadre,tarjetaDeVideo,fuenteDePoder,almacenamiento,ram,gabinete) VALUES (:nombre, :proce,:placaMadre,:tarjetaDeVideo,:fuenteDePoder,:almacenamiento,:ram,:gabinete)";
+      $stmt = $conn->prepare($sql);
+      $stmt->bindParam(':nombre', $_POST['nombre']);
+      $stmt->bindParam(':proce', $_POST['procesador']);
+      $stmt->bindParam(':placaMadre', $_POST['placaMadre']);
+      $stmt->bindParam(':tarjetaDeVideo', $_POST['tarjetaDeVideo']);
+      $stmt->bindParam(':fuenteDePoder', $_POST['fuenteDePoder']);
+      $stmt->bindParam(':almacenamiento', $_POST['almacenamiento']);
+      $stmt->bindParam(':ram', $_POST['ram']);
+      $stmt->bindParam(':gabinete', $_POST['gabinete']);
+
+      
+   
+      
+    
+     if ($stmt->execute()) {
+
+      
+      
+    //  $message = 'Successfully created new user';
+  //    header('Location: login.php');
+
+    } else {
+      
+   //   echo "<script> alert('fuerasql') </script>";
+     // $message = 'Sorry there must have been an issue creating your account';
+     // header('Location: register.html');
+    }
+ 
+  }else{
+  //  echo "alert('no paso')";
+  }
+  
+
+  }else{
+    header('Location: login.php');
+  }
+/*
+  session_start();
+
+  require '../php/database.php';
+
+  if (isset($_SESSION['user_id'])) {
+    header('Location: login.php');
     /*
     $records = $conn->prepare('SELECT id, nombre, pass FROM usuarios WHERE id = :id');
     $records->bindParam(':id', $_SESSION['user_id']);
@@ -16,10 +71,50 @@
       $user = $results;
       
     }
-    */
+    
+// INSERTAR SQL
+//and $_POST["usuario"] !="" and $_POST["contrasena"]!=""
+
+
+    
+  
   }else{
-    header('Location: login.php');
+    if (isset($_POST["nombre"], $_POST["placamadre"], $_POST["procesador"], $_POST["tarjetaDeVideo"], $_POST["fuenteDePoder"], $_POST["almacenamiento"], $_POST["ram"], $_POST["gabinete"]) ){
+
+      //traspasamos a variables locales, para evitar complicaciones con las comillas:
+     // $usuario = $_POST["usuario"];
+      //$contrasena = $_POST["contrasena"];
+    
+      $sql = "INSERT INTO computadoras (nombre, procesador,tarjetaDeVideo,fuenteDePoder,almacenamiento,ram,gabinete) VALUES (:nombre, :proce,:tarjetaDeVideo,:fuenteDePoder,:almacenamiento,:ram,:gabinete)";
+      $stmt = $conn->prepare($sql);
+      $stmt->bindParam(':nombre', $_POST['nombre']);
+      $stmt->bindParam(':proce', $_POST['procesador']);
+      $stmt->bindParam(':tarjetaDeVideo', $_POST['tarjetaDeVideo']);
+      $stmt->bindParam(':fuenteDePoder', $_POST['fuenteDePoder']);
+      $stmt->bindParam(':almacenamiento', $_POST['almacenamiento']);
+      $stmt->bindParam(':ram', $_POST['ram']);
+      $stmt->bindParam(':gabinete', $_POST['gabinete']);
+
+      
+    
+      
+    
+     if ($stmt->execute()) {
+    //  $message = 'Successfully created new user';
+  //    header('Location: login.php');
+    } else {
+     // $message = 'Sorry there must have been an issue creating your account';
+     // header('Location: register.html');
+    }
+ 
   }
+
+
+
+}
+
+*/
+
 ?>
 
 
@@ -85,29 +180,29 @@
 
     </header>
     <main>
-      <form action="">
-        <input placeholder="nombre" id="nombre" type="text">
+      <form action="agregar.php" method="POST" id="form">
+        <input placeholder="nombre" id="nombre" type="text" name="nombre">
 
-        <input placeholder="Placa Madre" id="placaMadre" type="text">
-
-
-        <input placeholder="Procesador" id="procesador" type="text">
+        <input placeholder="Placa Madre" id="placaMadre" type="text" name="placaMadre">
 
 
-        <input placeholder="Tarjeta de video" id="tarjetaDeVideo" type="text">
+        <input placeholder="Procesador" id="procesador" type="text" name="procesador">
 
 
-        <input placeholder="Fuente de poder" id="fuenteDePoder" type="text">
-
-        <input placeholder="Almacenamiento" id="almacenamiento" type="text">
+        <input placeholder="Tarjeta de video" id="tarjetaDeVideo" type="text" name="tarjetaDeVideo">
 
 
-        <input placeholder="Ram" id="ram" type="text">
+        <input placeholder="Fuente de poder" id="fuenteDePoder" type="text" name="fuenteDePoder">
+
+        <input placeholder="Almacenamiento" id="almacenamiento" type="text" name="almacenamiento">
 
 
-        <input placeholder="Gabinete" id="gabinete" type="text">
+        <input placeholder="Ram" id="ram" type="text" name="ram">
 
-        <input id="file" type="file" accept=".jpg,.png,.gif">
+
+        <input placeholder="Gabinete" id="gabinete" type="text" name="gabinete">
+
+        <input id="file" type="file" accept=".jpg,.png,.gif" value="file">
         <div class="botonera">
           <input id="add" class="add" type="button" value="Agregar">
 
@@ -152,7 +247,7 @@
     </footer>
 
   </div>
-  <script src="/js/scriptAgregar.js"></script>
+  <script src="../js/scriptAgregar.js"></script>
   <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </body>
 

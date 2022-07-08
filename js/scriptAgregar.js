@@ -87,7 +87,14 @@ const agregar = ()=>{
             imageWidth: 400,
             imageHeight: 200,
             imageAlt: 'Custom image',
-          })
+          }).then(okay => {
+            if (okay) {
+                document.getElementById("form").submit();
+            
+           }
+         });
+alert("hola");
+         document.getElementById("form").submit();
     }
     
     
