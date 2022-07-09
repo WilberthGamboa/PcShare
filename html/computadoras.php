@@ -9,7 +9,7 @@
  //   echo "<H1>  {$_GET['busca']} </H1> ";
  //NO MOVER XD
 $condicion= $_GET['busca'];
- $query = "SELECT nombre,placaMadre,procesador,tarjetaDeVideo,fuenteDePoder,almacenamiento,ram,gabinete FROM computadoras";
+ $query = "SELECT nombre,placaMadre,procesador,tarjetaDeVideo,fuenteDePoder,almacenamiento,ram,gabinete FROM computadoras WHERE computadoras.nombre like '%$condicion%'";
  
  $stmt = $conn->prepare($query);
  $stmt->execute();
