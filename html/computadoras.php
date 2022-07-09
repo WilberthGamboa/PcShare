@@ -18,7 +18,7 @@ $condicion= $_GET['busca'];
  
  while($row=$stmt->fetch(PDO::FETCH_ASSOC)){
   
-  $userData['AllUsers'][] = $row;
+  $userData[][] = $row;
  }
  
 
