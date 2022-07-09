@@ -8,7 +8,7 @@
 
 
  
- $query = "SELECT nombre FROM computadoras";
+ //$query = "SELECT  nombre,placaMadre,procesador,tarjetaDeVideo,fuenteDePoder,almacenamiento,ram,gabinete, base64_enconde(imagen) FROM computadoras";
  
  $stmt = $conn->prepare($query);
  $stmt->execute();
