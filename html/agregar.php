@@ -14,7 +14,16 @@
       //traspasamos a variables locales, para evitar complicaciones con las comillas:
      // $usuario = $_POST["usuario"];
       //$contrasena = $_POST["contrasena"];
-     
+      $nombre_archivo = $_FILES['foto']['name']; //Obteniendo el nombre del archivo
+      $ruta_destino = "../fotospc/";
+      
+      //$_SERVER['DOCUMENT_ROOT'] = la carpeta raiz donde esta el proyecto
+      $carpeta_destino=$_SERVER['../fotospc/'] . $ruta_destino;
+      
+      //Movemos el archivo al directorio temp al directorio deseado.
+      
+      move_uploaded_file($_FILES['foto']['tmp_name'], $carpeta_destino . $nombre_archivo);
+
       $sql = "INSERT INTO computadoras (nombre,procesador,placaMadre,tarjetaDeVideo,fuenteDePoder,almacenamiento,ram,gabinete,imagen) VALUES (:nombre, :proce,:placaMadre,:tarjetaDeVideo,:fuenteDePoder,:almacenamiento,:ram,:gabinete,:imagen)";
       $stmt = $conn->prepare($sql);
       $stmt->bindParam(':nombre', $_POST['nombre']);
