@@ -93,8 +93,8 @@ const agregar = ()=>{
             
            }
          });
-alert("hola");
-         document.getElementById("form").submit();
+//alert("hola");
+      //   document.getElementById("form").submit();
     }
     
     

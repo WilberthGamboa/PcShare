@@ -6,16 +6,16 @@
   if (isset($_SESSION['user_id'])) {
   // echo "<script> alert('verificar');
    
-   
+   //echo $_FILES['foto']['name'];
  //  </script>";
-  echo $_POST["nombre"], $_POST["placaMadre"], $_POST["procesador"], $_POST["tarjetaDeVideo"], $_POST["fuenteDePoder"], $_POST["almacenamiento"], $_POST["ram"], $_POST["gabinete"];
-    if (isset($_POST["nombre"], $_POST["placaMadre"], $_POST["procesador"], $_POST["tarjetaDeVideo"], $_POST["fuenteDePoder"], $_POST["almacenamiento"], $_POST["ram"], $_POST["gabinete"])and $_POST["nombre"]!="" and $_POST["procesador"]!="" and $_POST["placaMadre"]!="" and $_POST["tarjetaDeVideo"]!="" and $_POST["fuenteDePoder"]!="" and $_POST["almacenamiento"]!="" and $_POST["ram"]!="" and $_POST["gabinete"]!="" ){
+ // echo $_POST["nombre"], $_POST["placaMadre"], $_POST["procesador"], $_POST["tarjetaDeVideo"], $_POST["fuenteDePoder"], $_POST["almacenamiento"], $_POST["ram"], $_POST["gabinete"];
+    if (isset($_POST["nombre"],$_FILES['foto']['name'], $_POST["placaMadre"], $_POST["procesador"], $_POST["tarjetaDeVideo"], $_POST["fuenteDePoder"], $_POST["almacenamiento"], $_POST["ram"], $_POST["gabinete"])and $_POST["nombre"]!="" and $_POST["procesador"]!="" and $_POST["placaMadre"]!="" and $_POST["tarjetaDeVideo"]!="" and $_POST["fuenteDePoder"]!="" and $_POST["almacenamiento"]!="" and $_POST["ram"]!="" and $_POST["gabinete"]!="" ){
    //   echo "<script> alert('dentro sql') </script>";
       //traspasamos a variables locales, para evitar complicaciones con las comillas:
      // $usuario = $_POST["usuario"];
       //$contrasena = $_POST["contrasena"];
      
-      $sql = "INSERT INTO computadoras (nombre,procesador,placaMadre,tarjetaDeVideo,fuenteDePoder,almacenamiento,ram,gabinete) VALUES (:nombre, :proce,:placaMadre,:tarjetaDeVideo,:fuenteDePoder,:almacenamiento,:ram,:gabinete)";
+      $sql = "INSERT INTO computadoras (nombre,procesador,placaMadre,tarjetaDeVideo,fuenteDePoder,almacenamiento,ram,gabinete,imagen) VALUES (:nombre, :proce,:placaMadre,:tarjetaDeVideo,:fuenteDePoder,:almacenamiento,:ram,:gabinete,:imagen)";
       $stmt = $conn->prepare($sql);
       $stmt->bindParam(':nombre', $_POST['nombre']);
       $stmt->bindParam(':proce', $_POST['procesador']);
@@ -26,11 +26,27 @@
       $stmt->bindParam(':ram', $_POST['ram']);
       $stmt->bindParam(':gabinete', $_POST['gabinete']);
 
+      //fotografia
+      /*
+      $tipoArchivo = $_FILES['foto']['type'];
+      $nombreArchivo = $_FILES['foto']['name'];
+      $tamanoArchivo = $_FILES['foto']['size'];
+      $imagenSubida = fopen($_FILES['foto']['tmp_name'], 'r');
+      $binariosImagen = fread($imagenSubida, $tamanoArchivo);
+      $stmt->send_long_data(1, file_get_contents($_FILES['foto']['tmp_name']));
+     
       
-   
-      
+    */
     
-     if ($stmt->execute()) {
+   // $nombre=$_POST['nombre'];
+    $cargarAvatar=($_FILES['foto']['tmp_name']);//carga el archivo
+    $avatar=fopen($cargarAvatar, 'rb');//leer el archivo como binario
+   // $cargarPoder=($_FILES['poder']['tmp_name']);//cargar/obtener el archivo
+    //$poder=fopen($cargarPoder, 'rb');//leer como binario
+    //$pais=$_POST['pais'];
+    $stmt->bindParam(':imagen', $avatar, PDO::PARAM_LOB);
+    
+      if ($stmt->execute()) {
 
       
       
@@ -39,7 +55,7 @@
 
     } else {
       
-   //   echo "<script> alert('fuerasql') </script>";
+   // echo "<script> alert('fuerasql') </script>";
      // $message = 'Sorry there must have been an issue creating your account';
      // header('Location: register.html');
     }
@@ -180,7 +196,7 @@
 
     </header>
     <main>
-      <form action="agregar.php" method="POST" id="form">
+      <form action="agregar.php" method="POST" id="form" enctype="multipart/form-data">
         <input placeholder="nombre" id="nombre" type="text" name="nombre">
 
         <input placeholder="Placa Madre" id="placaMadre" type="text" name="placaMadre">
@@ -202,7 +218,7 @@
 
         <input placeholder="Gabinete" id="gabinete" type="text" name="gabinete">
 
-        <input id="file" type="file" accept=".jpg,.png,.gif" value="file">
+        <input id="file" type="file" accept=".jpg,.png,.gif" name="foto">
         <div class="botonera">
           <input id="add" class="add" type="button" value="Agregar">
 
