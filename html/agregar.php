@@ -1,0 +1,161 @@
+<?php
+  session_start();
+
+  //require '../php/database.php';
+  require '../php/database2.php';
+
+  $stmt=$connection->prepare("SELECT * FROM componentes");
+  $stmt->execute();
+
+  if (isset($_SESSION['user_id'])) {
+  
+    if (isset($_POST["nombre"], $_POST["placaMadre"], $_POST["procesador"], $_POST["tarjetaDeVideo"], $_POST["fuenteDePoder"], $_POST["almacenamiento"], $_POST["ram"], $_POST["gabinete"])and $_POST["nombre"]!="" and $_POST["procesador"]!="" and $_POST["placaMadre"]!="" and $_POST["tarjetaDeVideo"]!="" and $_POST["fuenteDePoder"]!="" and $_POST["almacenamiento"]!="" and $_POST["ram"]!="" and $_POST["gabinete"]!="" ){
+
+
+      $stmt=$connection->prepare("INSERT INTO computadoras (nombre, placaMadre,procesador, tarjetaDeVideo, fuenteDePoder,almacenamiento,ram,gabinete)values(:a,:b,:c,:d,:e,:f,:g,:h)");
+      $stmt->bindParam(':a', $_POST['nombre']);
+      $stmt->bindParam(':b', $_POST['placaMadre']);
+      $stmt->bindParam(':c', $_POST['procesador']);
+      $stmt->bindParam(':d', $_POST['tarjetaDeVideo']);
+      $stmt->bindParam(':e', $_POST['fuenteDePoder']);
+      $stmt->bindParam(':f', $_POST['almacenamiento']);
+      $stmt->bindParam(':g', $_POST['ram']);
+      $stmt->bindParam(':h', $_POST['gabinete']);
+      $stmt->execute();
+
+      header('Location: agregar.php');
+
+
+    } else {
+      
+   
+    }
+  
+  }else{
+    header('Location: login.php');
+  }
+
+
+?>
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="../css/nav.css">
+  <link rel="stylesheet" href="../css/styleAgregar.css">
+  <link rel="stylesheet" href="../css/botones.css">
+  <link rel="stylesheet" href="../css/footer.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+
+  <title>Nueva Pc</title>
+</head>
+
+<body>
+  <div class="grilla">
+    <header>
+      <nav class="menu-container">
+        <!-- burger menu -->
+        <input type="checkbox" aria-label="Toggle menu" />
+        <span></span>
+        <span></span>
+        <span></span>
+
+
+        <!-- menu items -->
+        <div class="menu">
+          <ul>
+            <li>
+              <a href="index.php">
+                Principal
+              </a>
+            </li>
+            <li>
+              <a href="#">
+                Pc's
+              </a>
+            </li>
+            <li>
+              <a href="agregar.php">
+                Agregar Pc
+              </a>
+            </li>
+          </ul>
+          <ul>
+            <li>
+            <a href="../php/logout.php">
+                Salir
+              </a>
+            </li>
+          </ul>
+        </div>
+      </nav>
+
+
+
+    </header>
+    <main>
+    <form action="agregar.php" method="POST">
+        <input placeholder="Nombre" id="nombre" type="text" name="nombre">
+        <input placeholder="Placa Madre" id="placaMadre" type="text" name="placaMadre">
+        <input placeholder="Procesador" id="procesador" type="text" name="procesador">
+        <select name="tarjetaDeVideo">
+        <p><?php foreach($stmt as $r) {
+            echo "<option value=".$r[0].">".$r[0]."</option>";
+          } ?>
+        </select></p>
+        <input placeholder="Fuente de poder" id="fuenteDePoder" type="text" name="fuenteDePoder">
+        <input placeholder="Almacenamiento" id="almacenamiento" type="text" name="almacenamiento">
+        <input placeholder="Ram" id="ram" type="text" name="ram">
+        <input placeholder="Gabinete" id="gabinete" type="text" name="gabinete">
+        <div class="botonera">
+          <input id="add" class="add" type="submit" value="Agregar">
+          <input class="deny" type="reset" value="Eliminar">
+        </div>
+</form>
+
+    </main>
+
+    <footer class="footer-distributed">
+
+      <div class="footer-right">
+
+        <a href="#"><i class="fa fa-facebook"></i></a>
+        <a href="#"><i class="fa fa-twitter"></i></a>
+        <a href="#"><i class="fa fa-linkedin"></i></a>
+        <a href="#"><i class="fa fa-github"></i></a>
+
+      </div>
+
+      <div class="footer-left">
+
+        <p class="footer-links">
+          <a class="link-1" href="#">Inicio</a>
+
+          <a href="#">Nosotros</a>
+
+          <a href="#">Perfil</a>
+
+          <a href="#">Contacto</a>
+
+          <a href="#">Ayuda</a>
+        </p>
+
+        <p>PcShare &copy; 2022</p>
+      </div>
+
+    </footer>
+
+  </div>
+  <script src="../js/scriptAgregar.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+</body>
+
+
+</html>
