@@ -6,7 +6,9 @@
   if (isset($_SESSION['user_id'])) {
  //   $sql= SELECT nombre,placaMadre,procesador,tarjetaDeVideo,fuenteDePoder,almacenamiento,ram,gabinete,imagen FROM computadoras;
 
- $query = "SELECT * FROM computadoras";
+
+ 
+ $query = "SELECT nombre FROM computadoras";
  
  $stmt = $conn->prepare($query);
  $stmt->execute();
@@ -15,46 +17,36 @@
  
  while($row=$stmt->fetch(PDO::FETCH_ASSOC)){
   
-  $userData['id'][] = $row;
+  $userData['AllUsers'][] = $row;
  }
  
- echo json_encode($userData);
- echo $userData;
 
+ header('Content-Type: application/json');
+echo json_encode($userData);
+/*
 
-
-  }else{
+ $sql = "SELECT nombre FROM computadoras"; 
+ $query = $conn -> prepare($sql); 
+ $query -> execute(); 
+ $results = $query -> fetchAll(PDO::FETCH_OBJ); 
+  json_encode($results);
+ /*
+ if($query -> rowCount() > 0)   { 
+    foreach($results as $result) { 
+        $hola = $result -> nombre;
+    echo $hola ;
+    
+       }
+     }
+*/
+}else{
     header('Location: login.php');
   }
+ ?>
 
 
-?>
+  
 
 
 
-<!DOCTYPE html>
-<html lang="en">
 
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="../css/nav.css">
-  <link rel="stylesheet" href="../css/styleAgregar.css">
-  <link rel="stylesheet" href="../css/botones.css">
-  <link rel="stylesheet" href="../css/footer.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-
-
-  <title>Nueva Pc</title>
-</head>
-<body>
-    
-
-  -->
-  <script src="../js/scriptAgregar.js"></script>
-  <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-</body>
-
-
-</html>
