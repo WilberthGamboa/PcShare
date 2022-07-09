@@ -2,13 +2,13 @@
   session_start();
 
   require '../php/database.php';
-
+  // $xd = valor js
   if (isset($_SESSION['user_id'])) {
  //   $sql= SELECT nombre,placaMadre,procesador,tarjetaDeVideo,fuenteDePoder,almacenamiento,ram,gabinete,imagen FROM computadoras;
 
-
+ //   echo "<H1>  {$_GET['busca']} </H1> ";
  //NO MOVER XD
- $query = "SELECT  nombre,placaMadre,procesador,tarjetaDeVideo,fuenteDePoder,almacenamiento,ram,gabinete FROM computadoras";
+ $query = "SELECT nombre,placaMadre,procesador,tarjetaDeVideo,fuenteDePoder,almacenamiento,ram,gabinete FROM computadoras";
  
  $stmt = $conn->prepare($query);
  $stmt->execute();
