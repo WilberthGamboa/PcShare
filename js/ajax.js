@@ -1,5 +1,7 @@
 //const prueba = document.getElementById("prueba");
-
+function hola(){
+    alert("hola");
+}
 texto.onkeyup = () =>{
     loadDoc();
 }
@@ -35,6 +37,24 @@ function generar(hola) {
         
         const boton = document.createElement("input");
         boton.type="button";
+        boton.class="delete";
+        boton.value="descargar imagen";
+        boton.href="../fotospc/"+item[0].imagen;
+        boton.onclick=function(){
+            //descargarImagen(item[0].imagen);
+           // document.location("../fotospc/"+item[0].imagen);
+           // console.log(item[0].imagen);
+           //window.location.href = "../php/descarga.php?perro=" + item[0].imagen;
+           const img = document.createElement("img");   // Create in-memory image
+    img.addEventListener("load", () => {
+        const a = document.createElement("a");   // Create in-memory anchor
+        a.href = img.src;                        // href toward your server-image
+        a.download = item[0].imagen;               // :)
+        a.click();                               // Trigger click (download)
+    });
+    img.src = '../php/descargar.php?url='+ item[0].imagen;       // Request image from your server
+
+        }
         
         thNombre.textContent=item[0].nombre;
         thProcesador.textContent=item[0].procesador;
@@ -57,7 +77,7 @@ function generar(hola) {
         tr.appendChild(thAlmacenamiento);
         tr.appendChild(thRam);
         tr.appendChild(thGabinete);
-        tr.appendChild(thImagen);
+        tr.appendChild(boton);
         prueba.appendChild(tr);
 
         /*
@@ -109,6 +129,21 @@ function loadDoc() {
     var texto = document.getElementById("texto").value;
     //texto=toString(texto);
     xhttp.open("GET", "../html/computadoras.php?busca="+texto);
+    xhttp.send();
+  }
+
+
+  function descargarImagen(imagen) {
+    var xhttp = new XMLHttpRequest();
+    xhttp.onreadystatechange = function() {
+      if (this.readyState == 4 && this.status == 200) {
+        
+
+      }
+    };
+    console.log(imagen);
+   xhttp.open("POST", "../php/descargar.php?perro="+imagen);
+ //    xhttp.open("GET", "../php/descargar.php");
     xhttp.send();
   }
 
