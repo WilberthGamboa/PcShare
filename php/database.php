@@ -5,7 +5,7 @@
 $servername = "localhost";
 $username = "root";
 $password = "";
-$dbname = "usuarios";
+$dbname = "newusuarios";
 try {
   $conn = new PDO("mysql:host=$servername;dbname=$dbname;", $username, $password);
 } catch (PDOException $e) {
