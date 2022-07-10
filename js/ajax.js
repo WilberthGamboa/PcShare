@@ -1,6 +1,6 @@
 //const prueba = document.getElementById("prueba");
 
-prueba.onclick = () =>{
+texto.onkeyup = () =>{
     loadDoc();
 }
 
@@ -15,26 +15,49 @@ function generar(hola) {
     }
     const prueba = document.getElementById("body");
     hola.forEach(item => {
-        console.log(item[0].nombre);
+        console.log(item);
+       // console.log(item[0].nombre);
         //creamos el tr
         const tr = document.createElement("tr");
         
         //creamos los th
 
-        const thNombre = document.createElement("th");
-        /*
-        const thPlacaMadre = document.createElement("th");
-        const thProcesador = document.createElement("th");
-        const thTarjetaDeVideo = document.createElement("th");
-        const thFuenteDePoder = document.createElement("th");
-        const thAlmacenamiento = document.createElement("th");
-        const thRam = document.createElement("th");
-        const thGabinete = document.createElement("th");
-        const thImagen = document.createElement("th");
-        */
+        const thNombre = document.createElement("td");
+      
+        const thPlacaMadre = document.createElement("td");
+        const thProcesador = document.createElement("td");
+        const thTarjetaDeVideo = document.createElement("td");
+        const thFuenteDePoder = document.createElement("td");
+        const thAlmacenamiento = document.createElement("td");
+        const thRam = document.createElement("td");
+        const thGabinete = document.createElement("td");
+        const thImagen = document.createElement("td");
+        
+        const boton = document.createElement("input");
+        boton.type="button";
+        
         thNombre.textContent=item[0].nombre;
-        console.log(thNombre);
+        thProcesador.textContent=item[0].procesador;
+        thPlacaMadre.textContent=item[0].placaMadre;
+        thTarjetaDeVideo.textContent=item[0].tarjetaDeVideo;
+        thFuenteDePoder.textContent=item[0].fuenteDePoder;
+        thAlmacenamiento.textContent=item[0].almacenamiento;
+        thRam.textContent=item[0].ram;
+        thGabinete.textContent= item[0].gabinete;
+        thImagen.textContent=item[0].imagen;
+      //  console.log(item[0].imagen);
+        //Tarjeta de Video	Fuente de Poder	Almacenamiento	Ram	Gabinete	Imagen
+
+       // console.log(thNombre);
         tr.appendChild(thNombre);
+        tr.appendChild(thProcesador);
+        tr.appendChild(thPlacaMadre);
+        tr.appendChild(thTarjetaDeVideo);
+        tr.appendChild(thFuenteDePoder);
+        tr.appendChild(thAlmacenamiento);
+        tr.appendChild(thRam);
+        tr.appendChild(thGabinete);
+        tr.appendChild(thImagen);
         prueba.appendChild(tr);
 
         /*

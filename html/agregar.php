@@ -9,7 +9,7 @@
 
   if (isset($_SESSION['user_id'])) {
   
-    if (isset($_POST["nombre"], $_POST["placaMadre"], $_POST["procesador"], $_POST["tarjetaDeVideo"], $_POST["fuenteDePoder"], $_POST["almacenamiento"], $_POST["ram"], $_POST["gabinete"])and $_POST["nombre"]!="" and $_POST["procesador"]!="" and $_POST["placaMadre"]!="" and $_POST["tarjetaDeVideo"]!="" and $_POST["fuenteDePoder"]!="" and $_POST["almacenamiento"]!="" and $_POST["ram"]!="" and $_POST["gabinete"]!="" ){
+    if (isset($_POST["nombre"], $_POST["placaMadre"],$_FILES['foto']['name'], $_POST["procesador"], $_POST["tarjetaDeVideo"], $_POST["fuenteDePoder"], $_POST["almacenamiento"], $_POST["ram"], $_POST["gabinete"])and $_POST["nombre"]!="" and $_POST["procesador"]!="" and $_POST["placaMadre"]!="" and $_POST["tarjetaDeVideo"]!="" and $_POST["fuenteDePoder"]!="" and $_POST["almacenamiento"]!="" and $_POST["ram"]!="" and $_POST["gabinete"]!="" ){
 
 
       $stmt=$conn->prepare("INSERT INTO computadoras (nombre, placaMadre,procesador, tarjetaDeVideo, fuenteDePoder,almacenamiento,ram,gabinete,imagen)values(:a,:b,:c,:d,:e,:f,:g,:h,:i)");
