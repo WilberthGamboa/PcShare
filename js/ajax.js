@@ -11,20 +11,7 @@ class Computadora {
      this.gabinete=gabinete;
      this.imagen=imagen;
   }
-/*
-  get getTitulo(){
-      return this.titulo;
-  }
 
-  get getAutor(){
-      return this.autor;
-  }
-
-  get getEditorial(){
-      return this.editorial;
-  }
-
- */
   
 }
 
@@ -197,7 +184,7 @@ function loadDoc() {
     };
     var texto = document.getElementById("texto").value;
     //texto=toString(texto);
-    xhttp.open("GET", "../html/computadoras.php?busca="+texto);
+    xhttp.open("GET", "../php/computadoras.php?busca="+texto);
     xhttp.send();
   }
 
@@ -219,18 +206,4 @@ function loadDoc() {
 
 
 
-  //FUNCION ORIGINAL JSON 
-/*
-  function loadDoc() {
-    var xhttp = new XMLHttpRequest();
-    xhttp.onreadystatechange = function() {
-      if (this.readyState == 4 && this.status == 200) {
-        document.getElementById("demo").innerHTML =
-        this.responseText;
-      }
-    };
-    xhttp.open("GET", "ajax_info.txt", true);
-    xhttp.send();
-  }
 
-  */

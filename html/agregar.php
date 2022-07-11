@@ -1,3 +1,4 @@
+//PERMITE AGREGAR UN REGISTRO
 <?php
   session_start();
 
@@ -46,13 +47,7 @@
       $stmt->execute();
         //NUEVO CODIGO PARA SEGUNDA TABLA
       $nombre =$_POST["nombre"];
-      //$nombre=mysql_real_escape_string($nombre);
-     // SELECT `id` FROM `computadoras` WHERE nombre LIKE 'loren';
-     /*
-
-     $stmt = $pdo->query("SELECT * FROM users ORDER BY id DESC LIMIT 1");
-     $user = $stmt->fetch();
-     */
+      
       $stmt=$conn->prepare("SELECT * FROM `computadoras` WHERE `nombre` LIKE '$nombre'");
       $stmt->execute();
 
@@ -62,11 +57,11 @@
      // $idComputadora = $stmt;
       $idUsuario = $_SESSION['user_id'];
 
-     // INSERT INTO `propiedad`(`idUsuario`, `idPc`) VALUES ('[value-1]','[value-2]')
+   
 
      $stmt=$conn->prepare("INSERT INTO propiedad (idUsuario,idPc) VALUES ($idUsuario,$idComputadora)");
      $stmt->execute();
-      //AQUI CREAMOS CONSULTA 
+    
 
       header('Location: agregar.php');
 

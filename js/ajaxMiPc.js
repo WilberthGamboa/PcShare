@@ -247,7 +247,7 @@ function loadDoc() {
     };
     var texto = document.getElementById("texto").value;
     //texto=toString(texto);
-    xhttp.open("GET", "../html/misComputadoras.php?busca="+texto);
+    xhttp.open("GET", "../php/misComputadoras.php?busca="+texto);
     xhttp.send();
   }
 

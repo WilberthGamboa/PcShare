@@ -1,3 +1,5 @@
+//PERMITE LOGOUT 
+
 <?php
   session_start();
 

@@ -1,8 +1,9 @@
+//PERMITE EDITAR UN REGISTRO EN LA BD
 <?php
   session_start();
- // echo"<script>alert('hola')</script>";
+
   require '../php/database.php';
- // require '../php/database2.php';
+
 
   $stmt=$conn->prepare("SELECT * FROM componentes");
   $stmt->execute();
@@ -32,88 +33,12 @@
       $carpeta_destino=$_SERVER['../fotospc/'] . $ruta_destino;
       
       //Movemos el archivo al directorio temp al directorio deseado.
-      
       move_uploaded_file($_FILES['foto']['tmp_name'], $carpeta_destino . $nombre_archivo);
-         $cargarAvatar=($_FILES['foto']['tmp_name']);//carga el archivo
-
-        echo  "$nombre_archivo";
-
-
-
-
+      $cargarAvatar=($_FILES['foto']['tmp_name']);//carga el archivo
       $stmt->bindParam(':imagen',$nombre_archivo);
       $stmt->execute();
       echo "<script languaje='javascript' type='text/javascript'>window.close();</script>";
-      /*
-$consulta = "UPDATE tbl_personal
-SET `nombres`= :nombres, `apellidos` = :apellidos, `profesion` = :profesion, `estado` = :estado, `fregis` = :fregis
-WHERE `id` = :id";
-*/
 
-      /*
-      UPDATE `computadoras` SET `id`='[value-1]',`nombre`='[value-2]',`placaMadre`='[value-3]',`procesador`='[value-4]',`tarjetaDeVideo`='[value-5]',`fuenteDePoder`='[value-6]',`almacenamiento`='[value-7]',`ram`='[value-8]',`gabinete`='[value-9]',`imagen`='[value-10]' WHERE 1
-
-      */
-    /*
-      $stmt=$conn->prepare("INSERT INTO computadoras (nombre, placaMadre,procesador, tarjetaDeVideo, fuenteDePoder,almacenamiento,ram,gabinete,imagen)values(:a,:b,:c,:d,:e,:f,:g,:h,:i)");
-      $stmt->bindParam(':a', $_POST['nombre']);
-      $stmt->bindParam(':b', $_POST['placaMadre']);
-      $stmt->bindParam(':c', $_POST['procesador']);
-      $stmt->bindParam(':d', $_POST['tarjetaDeVideo']);
-      $stmt->bindParam(':e', $_POST['fuenteDePoder']);
-      $stmt->bindParam(':f', $_POST['almacenamiento']);
-      $stmt->bindParam(':g', $_POST['ram']);
-      $stmt->bindParam(':h', $_POST['gabinete']);
-      //NOMBRE ARCHIVO
-      $nombre_archivo = $_FILES['foto']['name']; //Obteniendo el nombre del archivo
-      $ruta_destino = "../fotospc/";
-      
-      //$_SERVER['DOCUMENT_ROOT'] = la carpeta raiz donde esta el proyecto
-      $carpeta_destino=$_SERVER['../fotospc/'] . $ruta_destino;
-      
-      //Movemos el archivo al directorio temp al directorio deseado.
-      
-      move_uploaded_file($_FILES['foto']['tmp_name'], $carpeta_destino . $nombre_archivo);
-         $cargarAvatar=($_FILES['foto']['tmp_name']);//carga el archivo
-
-        echo  "$nombre_archivo";
-
-
-
-
-      $stmt->bindParam(':i',$nombre_archivo);
-
-      
-   
-
-      $stmt->execute();
-        //NUEVO CODIGO
-      $nombre =$_POST["nombre"];
-      //$nombre=mysql_real_escape_string($nombre);
-     // SELECT `id` FROM `computadoras` WHERE nombre LIKE 'loren';
-     /*
-
-     $stmt = $pdo->query("SELECT * FROM users ORDER BY id DESC LIMIT 1");
-     $user = $stmt->fetch();
-     
-      $stmt=$conn->prepare("SELECT * FROM `computadoras` WHERE `nombre` LIKE '$nombre'");
-      $stmt->execute();
-      
-      while ($row = $stmt->fetch()) {
-        $idComputadora= $row['id'];
-    }
-     // $idComputadora = $stmt;
-      $idUsuario = $_SESSION['user_id'];
-
-     // INSERT INTO `propiedad`(`idUsuario`, `idPc`) VALUES ('[value-1]','[value-2]')
-
-     $stmt=$conn->prepare("INSERT INTO propiedad (idUsuario,idPc) VALUES ($idUsuario,$idComputadora)");
-     $stmt->execute();
-      //AQUI CREAMOS CONSULTA 
-
-      header('Location: agregar.php');
-    
-    */
     } else {
       
    
