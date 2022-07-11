@@ -68,7 +68,10 @@
 .footer-distributed .footer-right a:hover{transform:scale(1.1); -webkit-transform:scale(1.1);}
   
 .footer-distributed p.footer-links a:hover{text-decoration:underline;}
-  
+footer{
+	bottom: 0px;
+	position: absolute;
+}
 /* Media Queries */
   
 @media (max-width: 600px) {
