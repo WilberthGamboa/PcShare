@@ -1,0 +1,27 @@
+@media print {
+
+    footer, header {
+        display: none !important;
+    }
+
+    .bienvenida{
+
+        font-size: 4.5rem;
+        margin-bottom: 50px;
+       
+    }
+
+    .buscador{
+        margin-bottom: 50px;
+    }
+
+    .buscador form input{
+        font-size: 4.5rem;
+        box-sizing: content-box;
+    }
+
+    .table{
+        font-size: 4rem;
+    }
+
+}

@@ -1,0 +1,37 @@
+@media print {
+
+    footer, header {
+        display: none !important;
+    }
+
+    .nombre{
+        font-size: 4.5rem;
+    }
+
+    .fichaTecnica {
+        width: 100%;
+        margin: auto;
+        padding-bottom: 50px;
+        padding-top: 50px;
+    }
+
+    .foto {
+        display: flex;
+        justify-content: center;
+        width: 100%;
+    }
+
+    .foto img{
+        width: auto;
+        height: auto;
+    }
+
+    .section {
+        padding-left: 100px;
+        display: flex;
+        justify-content: center;
+        font-size: 4.5rem;
+    }
+    
+
+}
