@@ -8,9 +8,6 @@ $message = '';
 //Validamos que hayan llegado estas variables, y que no esten vacias:
 if (isset($_POST["usuario"], $_POST["contrasena"]) and $_POST["usuario"] !="" and $_POST["contrasena"]!=""){
 
-  //traspasamos a variables locales, para evitar complicaciones con las comillas:
- // $usuario = $_POST["usuario"];
-  //$contrasena = $_POST["contrasena"];
 
   $sql = "INSERT INTO usuarios (nombre, pass) VALUES (:nombre, :pass)";
   $stmt = $conn->prepare($sql);
@@ -27,24 +24,7 @@ if (isset($_POST["usuario"], $_POST["contrasena"]) and $_POST["usuario"] !="" an
   $message = 'Sorry there must have been an issue creating your account';
   header('Location: register.html');
 }
-  /*
-  //ESPARETE
-  echo $usuario;
-  //Preparamos la orden SQL
-  $sql = "INSERT INTO usuarios
-  (id,nombre,pass) VALUES (NULL,'$usuario','$contrasena')";
   
-  //Aqui ejecutaremos esa orden
-  if (mysqli_query($conn, $sql)) {
-    echo "New record created successfully";
-
-    //SI ES CORRECTO 
-   
-    
-} else {
-    echo "Error: " . $sql . "<br>" . mysqli_error($conn);
-}
-*/
   } else {
   
   //echo '<p>Por favor, complete el <a href="formulario.html">formulario</a></p>';
