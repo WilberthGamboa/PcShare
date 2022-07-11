@@ -6,7 +6,7 @@
   require '../php/database.php';
 
 
-  $stmt=$conn->prepare("SELECT * FROM componentes");
+  $stmt=$conn->prepare("CALL `componentesPC`()");
   $stmt->execute();
 
   if (isset($_SESSION['user_id'])) {
