@@ -1,6 +1,7 @@
 
 
 <?php
+//conexion
 
 $servername = "localhost";
 $username = "root";
