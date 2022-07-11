@@ -1,3 +1,5 @@
+//PERMITE LOGIN USUARIOS
+
 <?php
 
   session_start();
