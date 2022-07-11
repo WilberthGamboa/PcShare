@@ -22,6 +22,7 @@
 <body>
     <div class="grilla">
         <header>
+          
           <nav class="menu-container">
             <!-- burger menu -->
             <input type="checkbox" aria-label="Toggle menu" />
@@ -62,7 +63,7 @@
 
     
         </header>
-
+        <h1 align="center"> Hola <b><?php echo $_SESSION["usuario"]; ?></b> has ingresado <?php echo $_COOKIE[$_SESSION["usuario"]]; ?> veces en la ultima hora</h1>
         <div class="buscador">
             <form class="flex-form">
               <label for="from">

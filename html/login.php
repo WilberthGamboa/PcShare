@@ -107,10 +107,23 @@
             </div>
 
             <div class="row button">
-              <input type="submit" value="Iniciar Sesión">
+              <input name="iniciar" type="submit" value="Iniciar Sesión">
             </div>
             <div class="signup-link"> <a href="register.php">Registrase</a></div>
           </form>
+          <?php
+          if(isset($_REQUEST["iniciar"])){
+            $nombre=$_POST["usuario"];
+            $_SESSION["usuario"]=$nombre;
+            if(isset($_COOKIE[$nombre])){
+              $contador=$_COOKIE[$nombre];
+              setcookie($nombre, $contador+1,time()+3600);
+            }else{
+              setcookie($nombre,1,time()+3600);
+            }
+          } 
+          
+          ?>
         </div>
       </div>
 
