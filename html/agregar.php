@@ -6,7 +6,7 @@
   require '../php/database.php';
  // require '../php/database2.php';
 
-  $stmt=$conn->prepare("SELECT * FROM componentes");
+  $stmt=$conn->prepare("SELECT * FROM `allcomponentes`");
   $stmt->execute();
 
   if (isset($_SESSION['user_id'])) {
