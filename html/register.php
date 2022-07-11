@@ -5,7 +5,6 @@ require '../php/database.php';
 $message = '';
 
 
-//Validamos que hayan llegado estas variables, y que no esten vacias:
 if (isset($_POST["usuario"], $_POST["contrasena"]) and $_POST["usuario"] !="" and $_POST["contrasena"]!=""){
 
 
@@ -27,7 +26,7 @@ if (isset($_POST["usuario"], $_POST["contrasena"]) and $_POST["usuario"] !="" an
   
   } else {
   
-  //echo '<p>Por favor, complete el <a href="formulario.html">formulario</a></p>';
+  
   }
 
  
