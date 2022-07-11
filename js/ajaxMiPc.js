@@ -34,7 +34,12 @@ function generar(hola) {
         const thRam = document.createElement("td");
         const thGabinete = document.createElement("td");
         const thImagen = document.createElement("td");
-        
+        const thBtnDescargar = document.createElement("td");
+        const thBtnEditar = document.createElement("td");
+        const thBtnBorrar = document.createElement("td");
+        //BOTONES
+
+
         const boton = document.createElement("input");
         boton.type="button";
         boton.class="delete";
@@ -55,6 +60,48 @@ function generar(hola) {
     img.src = '../php/descargar.php?url='+ item[0].imagen;       // Request image from your server
 
         }
+
+       // <button type="button" class="btn btn-danger">Danger</button>
+        //<button type="button" class="btn btn-warning">Warning</button>
+        const btnEdit =document.createElement("input");
+        btnEdit.type="button";
+        btnEdit.class="btn btn-warning";
+        btnEdit.value="editar";
+
+//ELIMINAR
+
+
+
+        const btnDelete =document.createElement("input");
+        btnDelete.onclick=function(){
+            if (document.getElementById("body").hasChildNodes()) {
+                var children = document.getElementById("body").childNodes;
+            //   console.log( document.getElementById("body").appendChild(this));
+               // document.getElementById("body").removeChild();
+                eliminar(item[0].id);
+               document.getElementById("body").removeChild(tr);
+             //  console.log()
+              // this.appendChild(div);
+               // console.log(item[0].id);
+              /*
+                for (var i = 0; i < children.length; i++) {
+                  // do something with each child as children[i]
+                  // NOTE: List is live, adding or removing children will change the list
+                }
+                */
+              }
+        }
+
+
+
+
+
+
+
+
+        btnDelete.type="button";
+        btnDelete.class="btn btn-danger";
+        btnDelete.value="borrar";
         
         thNombre.textContent=item[0].nombre;
         thProcesador.textContent=item[0].procesador;
@@ -65,6 +112,11 @@ function generar(hola) {
         thRam.textContent=item[0].ram;
         thGabinete.textContent= item[0].gabinete;
         thImagen.textContent=item[0].imagen;
+
+        thBtnDescargar.appendChild(boton);
+        thBtnEditar.appendChild(btnEdit);
+        thBtnBorrar.appendChild(btnDelete);
+    
       //  console.log(item[0].imagen);
         //Tarjeta de Video	Fuente de Poder	Almacenamiento	Ram	Gabinete	Imagen
 
@@ -77,7 +129,9 @@ function generar(hola) {
         tr.appendChild(thAlmacenamiento);
         tr.appendChild(thRam);
         tr.appendChild(thGabinete);
-        tr.appendChild(boton);
+        tr.appendChild(thBtnDescargar);
+        tr.appendChild(thBtnEditar);
+        tr.appendChild(thBtnBorrar);
         prueba.appendChild(tr);
 
         /*
@@ -147,6 +201,25 @@ function loadDoc() {
     xhttp.send();
   }
 
+  function eliminar(id) {
+    var xhttp = new XMLHttpRequest();
+    xhttp.onreadystatechange = function() {
+      if (this.readyState == 4 && this.status == 200) {
+
+    // console.log(this.responseText);
+     //var hola= JSON.parse(this.responseText); 
+        
+      
+     
+      
+    
+      }
+    };
+    //var texto = document.getElementById("texto").value;
+    //texto=toString(texto);
+    xhttp.open("GET", "../php/borrar.php?busca="+id);
+    xhttp.send();
+  }
 
 
 
