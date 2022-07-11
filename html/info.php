@@ -19,11 +19,9 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="../css/nav.css">
+ 
 
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-  <link rel="stylesheet" href="../css/footer.css">
-  <link rel="stylesheet" href="../css/styleInfo.css">
+
 
   <title>PC1</title>
 </head>
@@ -74,12 +72,12 @@
     <h2 id="nombre">Pc#1 by WilberthGamboa</h2>
 
     <main>
-      <div class="fichaTecnica">
+      <div class="fichaTecnica" >
         <div class="foto">
           <img  alt="PC1" id="imagen">
         </div>
         
-        <section class="section">
+        <section class="section"  class=".d-none">
           <table>
             <tr>
               <th>Procesador</th>
@@ -147,7 +145,12 @@
 
     </footer>
   </div>
- 
+  <script src="../js/info.js"></script>
+  <link rel="stylesheet" href="../css/nav.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="../css/footer.css">
+  <link rel="stylesheet" href="../css/styleInfo.css">
+  <link rel="stylesheet" href="../css/media_print_info.css">
 </body>
-<script src="../js/info.js"></script>
+
 </html>

@@ -1,4 +1,4 @@
-//const prueba = document.getElementById("prueba");
+
 function hola(){
     alert("hola");
 }
@@ -18,11 +18,10 @@ function generar(hola) {
     const prueba = document.getElementById("body");
     hola.forEach(item => {
         console.log(item);
-       // console.log(item[0].nombre);
-        //creamos el tr
+     
         const tr = document.createElement("tr");
         
-        //creamos los th
+
 
         const thNombre = document.createElement("td");
       
@@ -37,7 +36,7 @@ function generar(hola) {
         const thBtnDescargar = document.createElement("td");
         const thBtnEditar = document.createElement("td");
         const thBtnBorrar = document.createElement("td");
-        //BOTONES
+  
 
 
         const boton = document.createElement("input");
@@ -47,10 +46,7 @@ function generar(hola) {
         boton.href="../fotospc/"+item[0].imagen;
         boton.onclick=function(){
          
-            //descargarImagen(item[0].imagen);
-           // document.location("../fotospc/"+item[0].imagen);
-           // console.log(item[0].imagen);
-           //window.location.href = "../php/descarga.php?perro=" + item[0].imagen;
+           
            const img = document.createElement("img");   // Create in-memory image
     img.addEventListener("load", () => {
         const a = document.createElement("a");   // Create in-memory anchor
@@ -62,75 +58,20 @@ function generar(hola) {
 
         }
 
-       // <button type="button" class="btn btn-danger">Danger</button>
-        //<button type="button" class="btn btn-warning">Warning</button>
+      
         const btnEdit =document.createElement("input");
         btnEdit.type="button";
         btnEdit.classList="btn btn-warning";
         btnEdit.value="Editar";
         btnEdit.onclick=function(){
- /*
-
-          var w = window.open();
-
-  // Creamos y cargamos dinámicamente la hoja de estilo
-  var link  = document.createElement('link');
-  link.rel  = 'stylesheet';
-  link.type = 'text/css';
-  link.href = 'https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css';
-  w.document.head.appendChild(link);
-
-  // Cargamos el contenido
-  //var contenido = document.getElementById("verVentana").innerHTML;
-  //w.document.body.innerHTML=contenido;
-  /*
-          const container = document.createElement("div");
-          container.className="container";
-
-          w.document.body.appendChild(container);
-
-          const formularionuevo = document.createElement("form");
-          formularionuevo.method="POST";
-
-          container.appendChild(formularionuevo);
-
-          const inputid = document.createElement("input");
-          inputid.type="hidden";
-          inputid.value=item[0].id;
-         // inputid.className="form-control";
-          inputid.name="nombre";
-          formularionuevo.appendChild(inputid);
-
-          const inputNombre = document.createElement("input");
-          inputNombre.value=item[0].nombre;
-          inputNombre.className="form-control";
-          inputNombre.name="nombre";
-          formularionuevo.appendChild(inputNombre);
-
-          const inputNombre = document.createElement("input");
-          inputNombre.value=item[0].nombre;
-          inputNombre.className="form-control";
-          inputNombre.name="nombre";
-          formularionuevo.appendChild(inputNombre);
-
-
-*/
-
-          //inputNombre.value=item[0].nombre;
-        //  w.document.body.appendChild(inputNombre);
-          
-
+ 
 
        myJSON =JSON.stringify(item[0].id);
     
       localStorage.setItem("json", myJSON);
 
       window.open("../php/editar.php");
-          //btnEdit.href="../html/prueba.html";
-          //btnEdit.setAttribute('href', "../php/editar.php");
-        //  editar(item[0].id);
-          //console.log(item[0].id);
-
+      
         }
 
 //ELIMINAR
@@ -145,15 +86,7 @@ function generar(hola) {
                // document.getElementById("body").removeChild();
                 eliminar(item[0].id);
                document.getElementById("body").removeChild(tr);
-             //  console.log()
-              // this.appendChild(div);
-               // console.log(item[0].id);
-              /*
-                for (var i = 0; i < children.length; i++) {
-                  // do something with each child as children[i]
-                  // NOTE: List is live, adding or removing children will change the list
-                }
-                */
+             
               }
         }
 
@@ -182,10 +115,9 @@ function generar(hola) {
         thBtnEditar.appendChild(btnEdit);
         thBtnBorrar.appendChild(btnDelete);
     
-      //  console.log(item[0].imagen);
-        //Tarjeta de Video	Fuente de Poder	Almacenamiento	Ram	Gabinete	Imagen
+    
 
-       // console.log(thNombre);
+      
         tr.appendChild(thNombre);
         tr.appendChild(thProcesador);
         tr.appendChild(thPlacaMadre);
@@ -199,35 +131,10 @@ function generar(hola) {
         tr.appendChild(thBtnBorrar);
         prueba.appendChild(tr);
 
-        /*
-       const div = document.createElement("p"); // <div></div>
-       div.textContent = item[0].id+" "+item[0].nombre+" "+item[0].procesador+" "+item[0].tarjetaDeVideo;
-div.id = "page";          // <div id="page"></div>
-div.className = "data";   // <div id="page" class="data"></div>
-div.style = "color: red"; // <div id="page" class="data" style="color: red"></div>
-       document.getElementById("contenido").appendChild(div);
-        */
+     
     });
 
-   // var xd=Object.entries(hola);
-  //  console.log(hola);
-
-    /*
-//  console.log(hola);
-  //const keys = Object.keys(hola);
-  //  console.log(hola[0].nombre);
-  //console.log(hola[0].nombre);
-    for (let index = 0; index <hola.length; index++) {
-
-        console.log(hola[0]);
-        
-    //    console.log(hola[keys[index.nombre]]);
-       // console.log(Object.values(hola)[index].nombre);
-      //  console.log(hola[index].nombre);
-      //  document.getElementById('contenido').innerHTML=''+hola[index]['nombre'];
-        
-    }
-    */
+   
 }
 
 function loadDoc() {
@@ -262,7 +169,7 @@ function loadDoc() {
     };
     console.log(imagen);
    xhttp.open("POST", "../php/descargar.php?perro="+imagen);
- //    xhttp.open("GET", "../php/descargar.php");
+
     xhttp.send();
   }
 
@@ -271,8 +178,7 @@ function loadDoc() {
     xhttp.onreadystatechange = function() {
       if (this.readyState == 4 && this.status == 200) {
 
-    // console.log(this.responseText);
-     //var hola= JSON.parse(this.responseText); 
+   
         
       
      
@@ -301,26 +207,11 @@ function loadDoc() {
     
       }
     };
-    //var texto = document.getElementById("texto").value;
-    //texto=toString(texto);
+    
     xhttp.open("GET", "../php/editar.php?busca="+id);
     xhttp.send();
   }
 
 
 
-  //FUNCION ORIGINAL JSON 
-/*
-  function loadDoc() {
-    var xhttp = new XMLHttpRequest();
-    xhttp.onreadystatechange = function() {
-      if (this.readyState == 4 && this.status == 200) {
-        document.getElementById("demo").innerHTML =
-        this.responseText;
-      }
-    };
-    xhttp.open("GET", "ajax_info.txt", true);
-    xhttp.send();
-  }
-
-  */
+ 

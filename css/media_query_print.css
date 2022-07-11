@@ -1,0 +1,53 @@
+@media print {
+
+    footer, header {
+        display: none !important;
+    }
+
+    .grilla{
+        display: flex;
+    }
+
+    .container {
+        margin-top: 1000px;
+    }
+
+    .wrapper form .row {
+        height: 145px;
+        margin-bottom: 150px;
+        position: relative;
+    }
+
+    .wrapper form .row input {
+        color: black;
+        font-size: 60px;
+    }
+
+    .wrapper .title {
+        height: 190px;
+        font-size: 80px;
+        color: black;
+        font-weight: 600;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .wrapper form .signup-link a {
+        color: #16a085;
+        text-decoration: none;
+        font-size: 60px;
+        padding-bottom: 500px;
+    }
+
+    .bienvenida{
+
+        display: none !important;
+       
+    }
+
+    .buscador{
+        width: 100%;
+    }
+
+}

@@ -1,0 +1,35 @@
+
+
+@media print {
+
+    footer, header {
+        display: none !important;
+    }
+
+    form {
+        margin-top: 30%;
+        max-width: 100%;
+        border: black 10px solid;
+    }
+
+    form input{
+        font-size: 3.5rem;
+        border: black 10px solid;
+    }
+
+    form select{
+        font-size: 3.5rem;
+        border: black 10px solid;
+    }
+
+    form .botonera input{
+        font-size: 3.5rem;
+        width: auto;
+        padding: 25px;
+        margin-left: 10px;
+        text-align: center;
+        border: black 10px solid;
+    }
+    
+
+}

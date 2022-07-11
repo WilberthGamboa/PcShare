@@ -88,11 +88,7 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="../css/nav.css">
-  <link rel="stylesheet" href="../css/styleAgregar.css">
-  <link rel="stylesheet" href="../css/botones.css">
-  <link rel="stylesheet" href="../css/footer.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  
 
 
   <title>Nueva Pc</title>
@@ -195,6 +191,14 @@
     </footer>
 
   </div>
+<!-- css-->
+  <link rel="stylesheet" href="../css/nav.css">
+  <link rel="stylesheet" href="../css/styleAgregar.css">
+  <link rel="stylesheet" href="../css/botones.css">
+  <link rel="stylesheet" href="../css/footer.css">
+  <link rel="stylesheet" href="../css/media_print_agregar.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <!-- scripts-->
   <script src="../js/scriptAgregar.js"></script>
   <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </body>

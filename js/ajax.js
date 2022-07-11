@@ -1,3 +1,6 @@
+
+//OBJETOS JS
+
 class Computadora {
   constructor(id,nombre,procesador,placaMadre,tarjetaDeVideo,fuenteDePoder,almacenamiento,ram,gabinete,imagen){
      this.id=id;
@@ -62,11 +65,8 @@ function generar(hola) {
         boton.value="descargar imagen";
         boton.href="../fotospc/"+item[0].imagen;
         boton.onclick=function(){
-            //descargarImagen(item[0].imagen);
-           // document.location("../fotospc/"+item[0].imagen);
-           // console.log(item[0].imagen);
-           //window.location.href = "../php/descarga.php?perro=" + item[0].imagen;
-           const img = document.createElement("img");   // Create in-memory image
+        
+           const img = document.createElement("img");   
     img.addEventListener("load", () => {
         const a = document.createElement("a");   // Create in-memory anchor
         a.href = img.src;                        // href toward your server-image
@@ -90,21 +90,6 @@ function generar(hola) {
           localStorage.setItem("miComputadora", pcJSON);
           window.open("info.php");
           
-          /*
-          let titulo = document.getElementById("titulo").value;
-    let autor = document.getElementById("autor").value;
-    let editorial = document.getElementById("editorial").value;
-    
-    var libro = new Libro(titulo,autor,editorial);
-    libros.push(libro);
-
-    myJSON =JSON.stringify(libros);
-    
-    localStorage.setItem("json", myJSON);
-
-    
-
-    */
         }
 
         
@@ -119,11 +104,7 @@ function generar(hola) {
         
         thImagen.appendChild(boton);
         thPcUsuario.appendChild(btnPcUsuario);
-       // thImagen.textContent=item[0].imagen;
-      //  console.log(item[0].imagen);
-        //Tarjeta de Video	Fuente de Poder	Almacenamiento	Ram	Gabinete	Imagen
-
-       // console.log(thNombre);
+  
         tr.appendChild(thNombre);
         tr.appendChild(thProcesador);
         tr.appendChild(thPlacaMadre);
@@ -136,35 +117,11 @@ function generar(hola) {
         tr.appendChild(thPcUsuario);
         prueba.appendChild(tr);
 
-        /*
-       const div = document.createElement("p"); // <div></div>
-       div.textContent = item[0].id+" "+item[0].nombre+" "+item[0].procesador+" "+item[0].tarjetaDeVideo;
-div.id = "page";          // <div id="page"></div>
-div.className = "data";   // <div id="page" class="data"></div>
-div.style = "color: red"; // <div id="page" class="data" style="color: red"></div>
-       document.getElementById("contenido").appendChild(div);
-        */
     });
 
-   // var xd=Object.entries(hola);
-  //  console.log(hola);
 
-    /*
-//  console.log(hola);
-  //const keys = Object.keys(hola);
-  //  console.log(hola[0].nombre);
-  //console.log(hola[0].nombre);
-    for (let index = 0; index <hola.length; index++) {
 
-        console.log(hola[0]);
-        
-    //    console.log(hola[keys[index.nombre]]);
-       // console.log(Object.values(hola)[index].nombre);
-      //  console.log(hola[index].nombre);
-      //  document.getElementById('contenido').innerHTML=''+hola[index]['nombre'];
-        
-    }
-    */
+    
 }
 
 function loadDoc() {
