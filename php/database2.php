@@ -1,4 +1,5 @@
 <?php 
+//conexion nueva para pruebas
 
 $user="root";
 $password="";
