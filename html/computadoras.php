@@ -2,7 +2,7 @@
   session_start();
 
   require '../php/database.php';
-  // $xd = valor js
+ 
   if (isset($_SESSION['user_id'])) {
  
 $condicion= $_GET['busca'];
