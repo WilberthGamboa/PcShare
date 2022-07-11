@@ -70,47 +70,47 @@ if (isset($_POST["usuario"], $_POST["contrasena"]) and $_POST["usuario"] !="" an
 
 <body>
   <div class="grilla">
-    <header>
-      <nav class="menu-container">
-        <!-- burger menu -->
-        <input type="checkbox" aria-label="Toggle menu" />
-        <span></span>
-        <span></span>
-        <span></span>
+  <header>
+          <nav class="menu-container">
+            <!-- burger menu -->
+            <input type="checkbox" aria-label="Toggle menu" />
+            <span></span>
+            <span></span>
+            <span></span>
+            
+    
+            <!-- menu items -->
+            <div class="menu">
+              <ul>
+                <li>
+                  <a href="index.php">
+                    Principal
+                  </a>
+                </li>
+                <li>
+                  <a href="misPc.php">
+                    Mis Pc
+                  </a>
+                </li>
+                <li>
+                  <a href="agregar.php">
+                    Agregar Pc
+                  </a>
+                </li>
+              </ul>
+              <ul>
+                <li>
+                <a href="../php/logout.php">
+                    Salir
+                  </a>
+                </li>
+              </ul>
+            </div>
+          </nav>
+    
 
-
-        <!-- menu items -->
-        <div class="menu">
-          <ul>
-            <li>
-              <a href="index.php">
-                Principal
-              </a>
-            </li>
-            <li>
-              <a href="#">
-                Pc's
-              </a>
-            </li>
-            <li>
-              <a href="agregar.php">
-                Agregar Pc
-              </a>
-            </li>
-          </ul>
-          <ul>
-            <li>
-            <a href="../php/logout.php">
-                Salir
-              </a>
-            </li>
-          </ul>
-        </div>
-      </nav>
-
-
-
-    </header>
+    
+        </header>
 
     <main>
       <div class="container">

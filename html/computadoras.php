@@ -1,4 +1,6 @@
 <?php
+
+//MOVER
   session_start();
 
   require '../php/database.php';

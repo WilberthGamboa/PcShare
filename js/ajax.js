@@ -1,3 +1,36 @@
+class Computadora {
+  constructor(id,nombre,procesador,placaMadre,tarjetaDeVideo,fuenteDePoder,almacenamiento,ram,gabinete,imagen){
+     this.id=id;
+     this.nombre=nombre;
+     this.procesador=procesador;
+     this.placaMadre=placaMadre;
+     this.tarjetaDeVideo=tarjetaDeVideo;
+     this.fuenteDePoder=fuenteDePoder;
+     this.almacenamiento=almacenamiento;
+     this.ram=ram;
+     this.gabinete=gabinete;
+     this.imagen=imagen;
+  }
+/*
+  get getTitulo(){
+      return this.titulo;
+  }
+
+  get getAutor(){
+      return this.autor;
+  }
+
+  get getEditorial(){
+      return this.editorial;
+  }
+
+ */
+  
+}
+
+
+
+
 //const prueba = document.getElementById("prueba");
 function hola(){
     alert("hola");
@@ -34,10 +67,11 @@ function generar(hola) {
         const thRam = document.createElement("td");
         const thGabinete = document.createElement("td");
         const thImagen = document.createElement("td");
+        const thPcUsuario = document.createElement("td");
         
         const boton = document.createElement("input");
         boton.type="button";
-        boton.class="delete";
+        boton.classList="btn btn-info";
         boton.value="descargar imagen";
         boton.href="../fotospc/"+item[0].imagen;
         boton.onclick=function(){
@@ -55,6 +89,37 @@ function generar(hola) {
     img.src = '../php/descargar.php?url='+ item[0].imagen;       // Request image from your server
 
         }
+
+        const btnPcUsuario = document.createElement("input");
+        btnPcUsuario.type="button";
+        btnPcUsuario.classList="btn btn-dark";
+        btnPcUsuario.value="Ver PC"
+
+        btnPcUsuario.onclick=function(){
+
+          var computadora = new Computadora(item[0].id,item[0].nombre,item[0].procesador,item[0].placaMadre,item[0].tarjetaDeVideo,item[0].fuenteDePoder,item[0].almacenamiento,item[0].ram,item[0].gabinete,item[0].imagen);
+          pcJSON =JSON.stringify(computadora);
+    
+          localStorage.setItem("miComputadora", pcJSON);
+          window.open("info.php");
+          
+          /*
+          let titulo = document.getElementById("titulo").value;
+    let autor = document.getElementById("autor").value;
+    let editorial = document.getElementById("editorial").value;
+    
+    var libro = new Libro(titulo,autor,editorial);
+    libros.push(libro);
+
+    myJSON =JSON.stringify(libros);
+    
+    localStorage.setItem("json", myJSON);
+
+    
+
+    */
+        }
+
         
         thNombre.textContent=item[0].nombre;
         thProcesador.textContent=item[0].procesador;
@@ -64,7 +129,10 @@ function generar(hola) {
         thAlmacenamiento.textContent=item[0].almacenamiento;
         thRam.textContent=item[0].ram;
         thGabinete.textContent= item[0].gabinete;
-        thImagen.textContent=item[0].imagen;
+        
+        thImagen.appendChild(boton);
+        thPcUsuario.appendChild(btnPcUsuario);
+       // thImagen.textContent=item[0].imagen;
       //  console.log(item[0].imagen);
         //Tarjeta de Video	Fuente de Poder	Almacenamiento	Ram	Gabinete	Imagen
 
@@ -77,7 +145,8 @@ function generar(hola) {
         tr.appendChild(thAlmacenamiento);
         tr.appendChild(thRam);
         tr.appendChild(thGabinete);
-        tr.appendChild(boton);
+        tr.appendChild(thImagen);
+        tr.appendChild(thPcUsuario);
         prueba.appendChild(tr);
 
         /*

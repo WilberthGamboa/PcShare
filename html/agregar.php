@@ -8,7 +8,7 @@
   $stmt->execute();
 
   if (isset($_SESSION['user_id'])) {
-  
+
     if (isset($_POST["nombre"], $_POST["placaMadre"],$_FILES['foto']['name'], $_POST["procesador"], $_POST["tarjetaDeVideo"], $_POST["fuenteDePoder"], $_POST["almacenamiento"], $_POST["ram"], $_POST["gabinete"])and $_POST["nombre"]!="" and $_POST["procesador"]!="" and $_POST["placaMadre"]!="" and $_POST["tarjetaDeVideo"]!="" and $_POST["fuenteDePoder"]!="" and $_POST["almacenamiento"]!="" and $_POST["ram"]!="" and $_POST["gabinete"]!="" ){
 
 
@@ -104,47 +104,47 @@
 
 <body>
   <div class="grilla">
-    <header>
-      <nav class="menu-container">
-        <!-- burger menu -->
-        <input type="checkbox" aria-label="Toggle menu" />
-        <span></span>
-        <span></span>
-        <span></span>
+  <header>
+          <nav class="menu-container">
+            <!-- burger menu -->
+            <input type="checkbox" aria-label="Toggle menu" />
+            <span></span>
+            <span></span>
+            <span></span>
+            
+    
+            <!-- menu items -->
+            <div class="menu">
+              <ul>
+                <li>
+                  <a href="index.php">
+                    Principal
+                  </a>
+                </li>
+                <li>
+                  <a href="misPc.php">
+                    Mis Pc
+                  </a>
+                </li>
+                <li>
+                  <a href="agregar.php">
+                    Agregar Pc
+                  </a>
+                </li>
+              </ul>
+              <ul>
+                <li>
+                <a href="../php/logout.php">
+                    Salir
+                  </a>
+                </li>
+              </ul>
+            </div>
+          </nav>
+    
 
-
-        <!-- menu items -->
-        <div class="menu">
-          <ul>
-            <li>
-              <a href="index.php">
-                Principal
-              </a>
-            </li>
-            <li>
-              <a href="#">
-                Pc's
-              </a>
-            </li>
-            <li>
-              <a href="agregar.php">
-                Agregar Pc
-              </a>
-            </li>
-          </ul>
-          <ul>
-            <li>
-            <a href="../php/logout.php">
-                Salir
-              </a>
-            </li>
-          </ul>
-        </div>
-      </nav>
-
-
-
-    </header>
+    
+        </header>
     <main>
     <form action="agregar.php" method="POST" id="form" enctype="multipart/form-data">
         <input placeholder="Nombre" id="nombre" type="text" name="nombre">

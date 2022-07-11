@@ -9,14 +9,14 @@
 </head>
 <body>
     <div class="grilla">
-        <header>
+    <header>
           <nav class="menu-container">
             <!-- burger menu -->
             <input type="checkbox" aria-label="Toggle menu" />
             <span></span>
             <span></span>
             <span></span>
-    
+            
     
             <!-- menu items -->
             <div class="menu">
@@ -27,8 +27,8 @@
                   </a>
                 </li>
                 <li>
-                  <a href="#">
-                    Pc's
+                  <a href="misPc.php">
+                    Mis Pc
                   </a>
                 </li>
                 <li>
@@ -47,7 +47,7 @@
             </div>
           </nav>
     
-    
+
     
         </header>
 
@@ -80,6 +80,7 @@
                                 <th>Imagen</th>
                                 <th>Editar</th>
                                 <th>Borrar</th>
+
                             </tr>
                         </thead>
                         <tbody id="body">
