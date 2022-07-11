@@ -1,7 +1,7 @@
-//PERMITE LOGIN USUARIOS
+
 
 <?php
-
+//PERMITE LOGIN USUARIOS
   session_start();
 
   if (isset($_SESSION['user_id'])) {

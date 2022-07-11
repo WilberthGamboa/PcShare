@@ -1,5 +1,6 @@
-//PERMITE LA DESCARGA DE LAS FOTOS 
+
 <?php
+//PERMITE LA DESCARGA DE LAS FOTOS 
 $var=$_GET['url'];
 
 

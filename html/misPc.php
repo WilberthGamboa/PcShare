@@ -1,6 +1,7 @@
-//PC DE CADA USUARIO
+
 
 <?php
+//PC DE CADA USUARIO (TODA);
   session_start();
 
   require '../php/database.php';

@@ -1,7 +1,7 @@
-//PERMITE REGISTRO USUARIOS
+
 
 <?php
-
+//PERMITE REGISTRO USUARIOS
 require '../php/database.php';
 
 $message = '';

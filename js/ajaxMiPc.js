@@ -42,8 +42,8 @@ function generar(hola) {
 
         const boton = document.createElement("input");
         boton.type="button";
-        boton.class="delete";
-        boton.value="descargar imagen";
+        boton.classList="btn btn-info";
+        boton.value="Descargar imagen";
         boton.href="../fotospc/"+item[0].imagen;
         boton.onclick=function(){
          
@@ -66,8 +66,8 @@ function generar(hola) {
         //<button type="button" class="btn btn-warning">Warning</button>
         const btnEdit =document.createElement("input");
         btnEdit.type="button";
-        btnEdit.class="btn btn-warning";
-        btnEdit.value="editar";
+        btnEdit.classList="btn btn-warning";
+        btnEdit.value="Editar";
         btnEdit.onclick=function(){
  /*
 
@@ -165,8 +165,8 @@ function generar(hola) {
 
 
         btnDelete.type="button";
-        btnDelete.class="btn btn-danger";
-        btnDelete.value="borrar";
+        btnDelete.classList="btn btn-danger";
+        btnDelete.value="Borrar";
         
         thNombre.textContent=item[0].nombre;
         thProcesador.textContent=item[0].procesador;

@@ -1,6 +1,6 @@
-//PERMITE BORRAR UN REGISTRO 
-<?php 
 
+<?php 
+//PERMITE BORRAR UN REGISTRO 
 session_start();
 
   require '../php/database.php';

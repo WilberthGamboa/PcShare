@@ -1,4 +1,5 @@
 <?php
+//TODAS LOS REGISTROS
   session_start();
 
   require '../php/database.php';

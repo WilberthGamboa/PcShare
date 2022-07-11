@@ -1,5 +1,6 @@
-//PERMITE EDITAR UN REGISTRO EN LA BD
+
 <?php
+//PERMITE EDITAR UN REGISTRO EN LA BD
   session_start();
 
   require '../php/database.php';

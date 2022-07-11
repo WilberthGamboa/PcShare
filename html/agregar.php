@@ -1,5 +1,6 @@
-//PERMITE AGREGAR UN REGISTRO
+
 <?php
+//PERMITE AGREGAR UN REGISTRO
   session_start();
 
   require '../php/database.php';
