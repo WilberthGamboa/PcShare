@@ -1,7 +1,5 @@
 <?php
   session_start();
-
-  //require '../php/database.php';
   require '../php/database2.php';
 
   $stmt=$connection->prepare("SELECT * FROM componentes");
