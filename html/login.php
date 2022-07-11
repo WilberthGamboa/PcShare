@@ -1,5 +1,7 @@
-<?php
 
+
+<?php
+//PERMITE LOGIN USUARIOS
   session_start();
 
   if (isset($_SESSION['user_id'])) {
@@ -49,46 +51,47 @@
 
 <body>
   <div class="grilla">
-    <header>
-      <nav class="menu-container">
-        <!-- burger menu -->
-        <input type="checkbox" aria-label="Toggle menu" />
-        <span></span>
-        <span></span>
-        <span></span>
+  <header>
+          <nav class="menu-container">
+            <!-- burger menu -->
+            <input type="checkbox" aria-label="Toggle menu" />
+            <span></span>
+            <span></span>
+            <span></span>
+            
+    
+            <!-- menu items -->
+            <div class="menu">
+              <ul>
+                <li>
+                  <a href="index.php">
+                    Principal
+                  </a>
+                </li>
+                <li>
+                  <a href="misPc.php">
+                    Mis Pc
+                  </a>
+                </li>
+                <li>
+                  <a href="agregar.php">
+                    Agregar Pc
+                  </a>
+                </li>
+              </ul>
+              <ul>
+                <li>
+                <a href="../php/logout.php">
+                    Salir
+                  </a>
+                </li>
+              </ul>
+            </div>
+          </nav>
+    
 
-
-        <!-- menu items -->
-        <div class="menu">
-          <ul>
-            <li>
-              <a href="index.php">
-                Principal
-              </a>
-            </li>
-            <li>
-              <a href="#">
-                Pc's
-              </a>
-            </li>
-            <li>
-              <a href="agregar.php">
-                Agregar Pc
-              </a>
-            </li>
-          </ul>
-          <ul>
-            <li>
-            <a href="../php/logout.php">
-                Salir
-              </a>
-            </li>
-          </ul>
-        </div>
-      </nav>
-
-
-    </header>
+    
+        </header>
 
     <main>
       <div class="container">
@@ -104,10 +107,23 @@
             </div>
 
             <div class="row button">
-              <input type="submit" value="Iniciar Sesión">
+              <input name="iniciar" type="submit" value="Iniciar Sesión">
             </div>
             <div class="signup-link"> <a href="register.php">Registrase</a></div>
           </form>
+          <?php
+          if(isset($_REQUEST["iniciar"])){
+            $nombre=$_POST["usuario"];
+            $_SESSION["usuario"]=$nombre;
+            if(isset($_COOKIE[$nombre])){
+              $contador=$_COOKIE[$nombre];
+              setcookie($nombre, $contador+1,time()+3600);
+            }else{
+              setcookie($nombre,1,time()+3600);
+            }
+          } 
+          
+          ?>
         </div>
       </div>
 

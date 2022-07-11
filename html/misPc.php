@@ -1,4 +1,18 @@
 
+
+<?php
+//PC DE CADA USUARIO (TODA);
+  session_start();
+
+  require '../php/database.php';
+
+  if (isset($_SESSION['user_id'])) {
+   
+  }else{
+    header('Location: login.php');
+  }
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -9,14 +23,14 @@
 </head>
 <body>
     <div class="grilla">
-        <header>
+    <header>
           <nav class="menu-container">
             <!-- burger menu -->
             <input type="checkbox" aria-label="Toggle menu" />
             <span></span>
             <span></span>
             <span></span>
-    
+            
     
             <!-- menu items -->
             <div class="menu">
@@ -27,8 +41,8 @@
                   </a>
                 </li>
                 <li>
-                  <a href="#">
-                    Pc's
+                  <a href="misPc.php">
+                    Mis Pc
                   </a>
                 </li>
                 <li>
@@ -47,7 +61,7 @@
             </div>
           </nav>
     
-    
+
     
         </header>
 
@@ -78,6 +92,9 @@
                                 <th>Ram</th>
                                 <th>Gabinete</th>
                                 <th>Imagen</th>
+                                <th>Editar</th>
+                                <th>Borrar</th>
+
                             </tr>
                         </thead>
                         <tbody id="body">
@@ -135,7 +152,7 @@
 -->
 
 </body>
-<script src="../js/ajax.js"></script>
+<script src="../js/ajaxMiPc.js"></script>
 <link rel="stylesheet" href="../css/nav.css">
   <link rel="stylesheet" href="../css/carrusel.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">

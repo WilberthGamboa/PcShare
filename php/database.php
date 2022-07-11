@@ -1,11 +1,11 @@
 
-
 <?php
+//CONEXION DB
 
 $servername = "localhost";
 $username = "root";
 $password = "";
-$dbname = "newusuarios";
+$dbname = "nuevapc";
 try {
   $conn = new PDO("mysql:host=$servername;dbname=$dbname;", $username, $password);
 } catch (PDOException $e) {

@@ -1,4 +1,7 @@
+
+
 <?php
+//PERMITE LOGOUT 
   session_start();
 
   session_unset();
