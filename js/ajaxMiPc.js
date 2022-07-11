@@ -46,6 +46,7 @@ function generar(hola) {
         boton.value="descargar imagen";
         boton.href="../fotospc/"+item[0].imagen;
         boton.onclick=function(){
+         
             //descargarImagen(item[0].imagen);
            // document.location("../fotospc/"+item[0].imagen);
            // console.log(item[0].imagen);
@@ -67,6 +68,70 @@ function generar(hola) {
         btnEdit.type="button";
         btnEdit.class="btn btn-warning";
         btnEdit.value="editar";
+        btnEdit.onclick=function(){
+ /*
+
+          var w = window.open();
+
+  // Creamos y cargamos dinámicamente la hoja de estilo
+  var link  = document.createElement('link');
+  link.rel  = 'stylesheet';
+  link.type = 'text/css';
+  link.href = 'https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css';
+  w.document.head.appendChild(link);
+
+  // Cargamos el contenido
+  //var contenido = document.getElementById("verVentana").innerHTML;
+  //w.document.body.innerHTML=contenido;
+  /*
+          const container = document.createElement("div");
+          container.className="container";
+
+          w.document.body.appendChild(container);
+
+          const formularionuevo = document.createElement("form");
+          formularionuevo.method="POST";
+
+          container.appendChild(formularionuevo);
+
+          const inputid = document.createElement("input");
+          inputid.type="hidden";
+          inputid.value=item[0].id;
+         // inputid.className="form-control";
+          inputid.name="nombre";
+          formularionuevo.appendChild(inputid);
+
+          const inputNombre = document.createElement("input");
+          inputNombre.value=item[0].nombre;
+          inputNombre.className="form-control";
+          inputNombre.name="nombre";
+          formularionuevo.appendChild(inputNombre);
+
+          const inputNombre = document.createElement("input");
+          inputNombre.value=item[0].nombre;
+          inputNombre.className="form-control";
+          inputNombre.name="nombre";
+          formularionuevo.appendChild(inputNombre);
+
+
+*/
+
+          //inputNombre.value=item[0].nombre;
+        //  w.document.body.appendChild(inputNombre);
+          
+
+
+       myJSON =JSON.stringify(item[0].id);
+    
+      localStorage.setItem("json", myJSON);
+
+      window.open("../php/editar.php");
+          //btnEdit.href="../html/prueba.html";
+          //btnEdit.setAttribute('href', "../php/editar.php");
+        //  editar(item[0].id);
+          //console.log(item[0].id);
+
+        }
 
 //ELIMINAR
 
@@ -218,6 +283,27 @@ function loadDoc() {
     //var texto = document.getElementById("texto").value;
     //texto=toString(texto);
     xhttp.open("GET", "../php/borrar.php?busca="+id);
+    
+    xhttp.send();
+  }
+
+
+  function editar(id) {
+    var xhttp = new XMLHttpRequest();
+    xhttp.onreadystatechange = function() {
+      if (this.readyState == 4 && this.status == 200) {
+
+    // console.log(this.responseText);
+     //var hola= JSON.parse(this.responseText); 
+     
+     
+      
+    
+      }
+    };
+    //var texto = document.getElementById("texto").value;
+    //texto=toString(texto);
+    xhttp.open("GET", "../php/editar.php?busca="+id);
     xhttp.send();
   }
 

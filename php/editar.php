@@ -1,6 +1,6 @@
 <?php
   session_start();
-
+ // echo"<script>alert('hola')</script>";
   require '../php/database.php';
  // require '../php/database2.php';
 
@@ -8,10 +8,53 @@
   $stmt->execute();
 
   if (isset($_SESSION['user_id'])) {
+
+
   
     if (isset($_POST["nombre"], $_POST["placaMadre"],$_FILES['foto']['name'], $_POST["procesador"], $_POST["tarjetaDeVideo"], $_POST["fuenteDePoder"], $_POST["almacenamiento"], $_POST["ram"], $_POST["gabinete"])and $_POST["nombre"]!="" and $_POST["procesador"]!="" and $_POST["placaMadre"]!="" and $_POST["tarjetaDeVideo"]!="" and $_POST["fuenteDePoder"]!="" and $_POST["almacenamiento"]!="" and $_POST["ram"]!="" and $_POST["gabinete"]!="" ){
+     $computadora = $_POST['id'];
+
+      $stmt = $conn->prepare("UPDATE computadoras SET  `nombre`=:nombre, `placaMadre`=:placaMadre, `procesador`=:procesador,`tarjetaDeVideo`=:tarjetaDeVideo, `fuenteDePoder`=:fuenteDePoder, `almacenamiento`=:almacenamiento,`ram`=:ram,`gabinete`=:gabinete,`imagen`=:imagen WHERE id=$computadora" );
+      $stmt->bindParam(':nombre', $_POST['nombre']);
+      $stmt->bindParam(':placaMadre', $_POST['placaMadre']);
+      $stmt->bindParam(':procesador', $_POST['procesador']);
+      $stmt->bindParam(':tarjetaDeVideo', $_POST['tarjetaDeVideo']);
+      $stmt->bindParam(':fuenteDePoder', $_POST['fuenteDePoder']);
+      $stmt->bindParam(':almacenamiento', $_POST['almacenamiento']);
+      $stmt->bindParam(':ram', $_POST['ram']);
+      $stmt->bindParam(':gabinete', $_POST['gabinete']);
 
 
+      $nombre_archivo = $_FILES['foto']['name']; //Obteniendo el nombre del archivo
+      $ruta_destino = "../fotospc/";
+      
+      //$_SERVER['DOCUMENT_ROOT'] = la carpeta raiz donde esta el proyecto
+      $carpeta_destino=$_SERVER['../fotospc/'] . $ruta_destino;
+      
+      //Movemos el archivo al directorio temp al directorio deseado.
+      
+      move_uploaded_file($_FILES['foto']['tmp_name'], $carpeta_destino . $nombre_archivo);
+         $cargarAvatar=($_FILES['foto']['tmp_name']);//carga el archivo
+
+        echo  "$nombre_archivo";
+
+
+
+
+      $stmt->bindParam(':imagen',$nombre_archivo);
+      $stmt->execute();
+      echo "<script languaje='javascript' type='text/javascript'>window.close();</script>";
+      /*
+$consulta = "UPDATE tbl_personal
+SET `nombres`= :nombres, `apellidos` = :apellidos, `profesion` = :profesion, `estado` = :estado, `fregis` = :fregis
+WHERE `id` = :id";
+*/
+
+      /*
+      UPDATE `computadoras` SET `id`='[value-1]',`nombre`='[value-2]',`placaMadre`='[value-3]',`procesador`='[value-4]',`tarjetaDeVideo`='[value-5]',`fuenteDePoder`='[value-6]',`almacenamiento`='[value-7]',`ram`='[value-8]',`gabinete`='[value-9]',`imagen`='[value-10]' WHERE 1
+
+      */
+    /*
       $stmt=$conn->prepare("INSERT INTO computadoras (nombre, placaMadre,procesador, tarjetaDeVideo, fuenteDePoder,almacenamiento,ram,gabinete,imagen)values(:a,:b,:c,:d,:e,:f,:g,:h,:i)");
       $stmt->bindParam(':a', $_POST['nombre']);
       $stmt->bindParam(':b', $_POST['placaMadre']);
@@ -44,7 +87,7 @@
    
 
       $stmt->execute();
-        //NUEVO CODIGO PARA SEGUNDA TABLA
+        //NUEVO CODIGO
       $nombre =$_POST["nombre"];
       //$nombre=mysql_real_escape_string($nombre);
      // SELECT `id` FROM `computadoras` WHERE nombre LIKE 'loren';
@@ -52,10 +95,10 @@
 
      $stmt = $pdo->query("SELECT * FROM users ORDER BY id DESC LIMIT 1");
      $user = $stmt->fetch();
-     */
+     
       $stmt=$conn->prepare("SELECT * FROM `computadoras` WHERE `nombre` LIKE '$nombre'");
       $stmt->execute();
-
+      
       while ($row = $stmt->fetch()) {
         $idComputadora= $row['id'];
     }
@@ -69,15 +112,15 @@
       //AQUI CREAMOS CONSULTA 
 
       header('Location: agregar.php');
-
-
+    
+    */
     } else {
       
    
     }
   
   }else{
-    header('Location: login.php');
+    header('Location: editar.php');
   }
 
 
@@ -89,6 +132,8 @@
 <html lang="en">
 
 <head>
+
+
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -98,7 +143,21 @@
   <link rel="stylesheet" href="../css/footer.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
+  <script>
+window.onload = function() {
+    text = localStorage.getItem("json");
+     hola =JSON.parse(text);
+     
+     const id = document.createElement("input");
+     id.type="hidden";
+     id.value=hola;
+     id.name="id";
 
+     const form = document.getElementById("form");
+     form.appendChild(id);
+
+};
+  </script>
   <title>Nueva Pc</title>
 </head>
 
@@ -146,7 +205,7 @@
 
     </header>
     <main>
-    <form action="agregar.php" method="POST" id="form" enctype="multipart/form-data">
+    <form action="editar.php" method="POST" id="form" enctype="multipart/form-data">
         <input placeholder="Nombre" id="nombre" type="text" name="nombre">
         <input placeholder="Placa Madre" id="placaMadre" type="text" name="placaMadre">
         <input placeholder="Procesador" id="procesador" type="text" name="procesador">
